@@ -110,7 +110,7 @@ class Continent extends \yii\db\ActiveRecord
                 $this->$name = $params[$value];
                 if ($this->validate($name)) {
                     if (in_array($name, $ilikeParams)) {
-                        $query->andWhere(['ilike', $this->assocCity, $name => $params[$value]]);
+                        $query->andWhere(['ilike', $name, $params[$value]]);
                     } else {
                         $query->andWhere([$name => $params[$value]]);
                     }

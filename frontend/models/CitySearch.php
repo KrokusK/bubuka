@@ -4,12 +4,12 @@ namespace frontend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\Country;
+use frontend\models\City;
 
 /**
- * CountrySearch represents the model behind the search form of `frontend\models\Country`.
+ * CitySearch represents the model behind the search form of `frontend\models\City`.
  */
-class CountrySearch extends Country
+class CitySearch extends City
 {
     /**
      * {@inheritdoc}
@@ -17,7 +17,7 @@ class CountrySearch extends Country
     public function rules()
     {
         return [
-            [['id', 'continent_id'], 'integer'],
+            [['id', 'country_id', 'population'], 'integer'],
             [['name'], 'safe'],
         ];
     }
@@ -40,7 +40,7 @@ class CountrySearch extends Country
      */
     public function search($params)
     {
-        $query = Country::find();
+        $query = City::find();
 
         // add conditions that should always apply here
 
@@ -59,7 +59,8 @@ class CountrySearch extends Country
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'continent_id' => $this->continent_id,
+            'country_id' => $this->country_id,
+            'population' => $this->population,
         ]);
 
         $query->andFilterWhere(['ilike', 'name', $this->name]);

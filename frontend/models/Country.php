@@ -7,9 +7,12 @@ use Yii;
 /**
  * This is the model class for table "country".
  *
- * @property string $code
+ * @property int $id
+ * @property int $continent_id
  * @property string $name
- * @property int $population
+ *
+ * @property City[] $cities
+ * @property Continent $continent
  */
 class Country extends \yii\db\ActiveRecord
 {
@@ -27,12 +30,11 @@ class Country extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['code', 'name'], 'required'],
-            [['population'], 'default', 'value' => null],
-            [['population'], 'integer'],
-            [['code'], 'string', 'max' => 2],
-            [['name'], 'string', 'max' => 52],
-            [['code'], 'unique'],
+            [['continent_id', 'name'], 'required'],
+            [['continent_id'], 'default', 'value' => null],
+            [['continent_id'], 'integer'],
+            [['name'], 'string', 'max' => 255],
+            [['continent_id'], 'exist', 'skipOnError' => true, 'targetClass' => Continent::className(), 'targetAttribute' => ['continent_id' => 'id']],
         ];
     }
 
@@ -42,9 +44,29 @@ class Country extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'code' => 'Code',
+            'id' => 'ID',
+            'continent_id' => 'Continent ID',
             'name' => 'Name',
-            'population' => 'Population',
         ];
+    }
+
+    /**
+     * Gets query for [[Cities]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCities()
+    {
+        return $this->hasMany(City::className(), ['country_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[Continent]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getContinent()
+    {
+        return $this->hasOne(Continent::className(), ['id' => 'continent_id']);
     }
 }

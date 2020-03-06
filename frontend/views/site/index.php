@@ -18,7 +18,7 @@ $this->title = 'My Yii Application';
             <table>
                 <tr>
                     <td>
-                        <?php echo  v; ?>
+                        <?php echo var_dump($continents); ?>
                     </td>
                 </tr>
                 <?php foreach ($continents as $continent): ?>

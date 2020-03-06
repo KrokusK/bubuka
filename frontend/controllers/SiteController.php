@@ -80,10 +80,10 @@ class SiteController extends Controller
 
         $model = new Continent();
         // Search data
-        $model->getDataContinent($getParams);
+        $dataContinent = $model->getDataContinent($getParams);
 
         return $this->render('index', [
-            'continents' => $model,
+            'continents' => $dataContinent,
             //'pagination' => $pagination,
         ]);
 

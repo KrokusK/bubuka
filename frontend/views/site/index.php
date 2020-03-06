@@ -26,11 +26,17 @@ $this->title = 'My Yii Application';
                     foreach ($continents as $continent):
                 ?>
                     <tr>
-                        <td collspan="2">
-                            <?php echo Html::encode("{$i}"); ?>
+                        <td collspan="4" style="border: 1px">
+                            <?php echo Html::encode("{$continent["name"]}"); ?>
                         </td>
                     </tr>
                 <tr>
+                    <td>
+                        <?php echo Html::encode("{$i}"); ?>
+                    </td>
+                    <td>
+                        <?php echo Html::encode("{$continent["name"]}"); ?>
+                    </td>
                     <td>
                         <?php echo Html::encode("{$continent["name"]}"); ?>
                     </td>

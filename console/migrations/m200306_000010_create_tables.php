@@ -15,19 +15,14 @@ class m200306_000010_create_tables extends Migration
         // create continent table
         $this->createTable('{{%continent}}', [
             'id' => $this->primaryKey(),
-            'name' => $this->string()->notNull(),
-            'created_at' => $this->integer()->notNull(),
-            'updated_at' => $this->integer()->notNull()
+            'name' => $this->string()->notNull()
         ]);
 
         // create country table
         $this->createTable('{{%country}}', [
             'id' => $this->primaryKey(),
             'continent_id' => $this->integer()->notNull(),
-            'capital' => $this->string()->notNull(),
-            'population' => $this->integer()->notNull(),
-            'created_at' => $this->integer()->notNull(),
-            'updated_at' => $this->integer()->notNull()
+            'name' => $this->string()->notNull()
         ]);
 
         // creates index for column continent_id
@@ -43,6 +38,31 @@ class m200306_000010_create_tables extends Migration
             '{{%country}}',
             'continent_id',
             '{{%continent}}',
+            'id',
+            'CASCADE'
+        );
+
+        // create city table
+        $this->createTable('{{%city}}', [
+            'id' => $this->primaryKey(),
+            'country_id' => $this->integer()->notNull(),
+            'name' => $this->string()->notNull(),
+            'population' => $this->integer()->notNull()
+        ]);
+
+        // creates index for column country_id
+        $this->createIndex(
+            'idx-city-country-id',
+            '{{%city}}',
+            'country_id'
+        );
+
+        // add foreign key for table city
+        $this->addForeignKey(
+            'fk-city-country-id',
+            '{{%city}}',
+            'country_id',
+            '{{%country}}',
             'id',
             'CASCADE'
         );

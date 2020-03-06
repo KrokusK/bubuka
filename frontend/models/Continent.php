@@ -19,6 +19,17 @@ use yii\base\InvalidArgumentException;
 class Continent extends \yii\db\ActiveRecord
 {
     /**
+     * Because the field names may match within a single query,
+     * the parameter names may not match the table field names.
+     * To solve this problem let's create an associative array
+     */
+    protected $assocCity = [
+        'name' => 'name',
+        'limitRec' => 'limit',
+        'offsetRec' => 'offset'
+    ];
+
+    /**
      * {@inheritdoc}
      */
     public static function tableName()

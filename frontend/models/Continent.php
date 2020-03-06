@@ -80,7 +80,7 @@ class Continent extends \yii\db\ActiveRecord
         // Add data filter
         $this->setDataFilter($queryContinent, $params);
         // Add pagination params
-        //$this->setPaginationParams($query, $params);
+        $this->setPaginationParams($queryContinent, $params);
         // get data
         $dataContinent = $queryContinent->orderBy('id')
             ->asArray()
@@ -106,6 +106,41 @@ class Continent extends \yii\db\ActiveRecord
                     $query->andWhere([$name => $params[$value]]);
                 }
 
+            }
+        }
+    }
+
+    /**
+     * Set pagination params
+     *
+     * @params parameters for pagination
+     * @query object with data filter
+     */
+    private function setPaginationParams($query, $params = [])
+    {
+        // default values
+        $defauftParams = [
+            'limitRec' => 10,
+            'offsetRec' => 0
+        ];
+
+        foreach ($this->assocCity as $name => $value) {
+            switch ($name) {
+                case 'limitRec':
+                    if (array_key_exists($value, $params) && preg_match("/^[0-9]*$/",$params[$value])) {
+                        $query->limit($params[$value]);
+                    } else {
+                        // default value
+                        $query->limit($defauftParams[$name]);
+                    }
+                    break;
+                case 'offsetRec':
+                    if (array_key_exists($value, $params) && preg_match("/^[0-9]*$/",$params[$value])) {
+                        $query->offset($params[$value]);
+                    } else {
+                        // default value
+                        $query->offset($defauftParams[$name]);
+                    }
             }
         }
     }

@@ -25,20 +25,22 @@ $this->title = 'My Yii Application';
 
                 <table style="border-width: thin">
                     <?php foreach ($continent["countries"] as $country): ?>
-                    <tr>
-                        <td>
-                            <?php echo Html::encode("{$i}"); ?>
-                        </td>
-                        <td>
-                            <?php echo Html::encode("{$continent["name"]}"); ?>
-                        </td>
-                        <td>
-                            <?php echo Html::encode("{$country["name"]}"); ?>
-                        </td>
-                        <td>
-                            <?php echo Html::encode("{$continent["name"]}"); ?>
-                        </td>
-                    </tr>
+                        <?php foreach ($country["cities"] as $city): ?>
+                        <tr>
+                            <td>
+                                <?php echo Html::encode("{$i}"); ?>
+                            </td>
+                            <td>
+                                <?php echo Html::encode("{$city["name"]}"); ?>
+                            </td>
+                            <td>
+                                <?php echo Html::encode("{$country["name"]}"); ?>
+                            </td>
+                            <td>
+                                <?php echo Html::encode("{$city["population"]}"); ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
                     <?php endforeach; ?>
                 </table>
             <?php

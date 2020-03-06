@@ -139,9 +139,9 @@ class Continent extends \yii\db\ActiveRecord
                 if ($this->validate($name)) {
                     //$query->andWhere(['country.'.$name => $params[$value]]);
                     if (in_array($name, $ilikeParams)) {
-                        $query->andWhere(['ilike', 'country.'.$name, $params[$value]]);
+                        $query->andWhere(['ilike', 'countries.'.$name, $params[$value]]);
                     } else {
-                        $query->andWhere(['country.'.$name => $params[$value]]);
+                        $query->andWhere(['countries.'.$name => $params[$value]]);
                     }
                 }
             }

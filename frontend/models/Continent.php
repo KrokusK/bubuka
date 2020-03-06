@@ -88,7 +88,7 @@ class Continent extends \yii\db\ActiveRecord
         $queryContinent = Continent::find()
             ->leftJoin('country','country.continent_id = continent.id')
             ->innerJoin('city','city.country_id = country.id')
-            ->orderBy('city.population');
+            ->orderBy('continent.name');
         // Add data filter
         $this->setContinentFilter($queryContinent, $params);
         $this->setCountryFilter($queryContinent, $params);

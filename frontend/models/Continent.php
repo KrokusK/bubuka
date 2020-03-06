@@ -140,10 +140,12 @@ class Continent extends \yii\db\ActiveRecord
         // ilike parameters
         $ilikeParams = ['name'];
 
+        $modelValidate = new Country();
+
         foreach ($this->assocCountry as $name => $value) {
-            if (array_key_exists($value, $params) && $this->hasAttribute($name)) {
-                $this->$name = $params[$value];
-                if ($this->validate($name)) {
+            if (array_key_exists($value, $params) && $modelValidate->hasAttribute($name)) {
+                $modelValidate->$name = $params[$value];
+                if ($modelValidate->validate($name)) {
                     //$query->andWhere(['country.'.$name => $params[$value]]);
                     if (in_array($name, $ilikeParams)) {
                         $query->andWhere(['ilike', 'country.'.$name, $params[$value]]);
@@ -166,10 +168,12 @@ class Continent extends \yii\db\ActiveRecord
         // ilike parameters
         $ilikeParams = ['name'];
 
+        $modelValidate = new City();
+
         foreach ($this->assocCity as $name => $value) {
-            if (array_key_exists($value, $params) && $this->hasAttribute($name)) {
-                $this->$name = $params[$value];
-                if ($this->validate($name)) {
+            if (array_key_exists($value, $params) && $modelValidate->hasAttribute($name)) {
+                $modelValidate->$name = $params[$value];
+                if ($modelValidate->validate($name)) {
                     if (in_array($name, $ilikeParams)) {
                         $query->andWhere(['ilike', 'city.'.$name, $params[$value]]);
                     } else {

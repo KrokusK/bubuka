@@ -101,7 +101,7 @@ class Continent extends \yii\db\ActiveRecord
         // get data
         $dataContinent = $queryContinent->orderBy('id')
             //->with('countries','countries.cities')
-            ->asArray()
+            //->asArray()
             ->all();
 
         // return data

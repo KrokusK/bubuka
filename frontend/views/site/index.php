@@ -13,7 +13,7 @@ $this->title = 'My Yii Application';
     <div class="body-content">
 
         <div class="row">
-            <?php foreach ($continents as $continent): ?>
+            <?php //foreach ($continents as $continent): ?>
             <table>
                 <tr>
                     <td>
@@ -24,7 +24,7 @@ $this->title = 'My Yii Application';
                     </td>
                 </tr>
             </table>
-            <?php endforeach; ?>
+            <?php //endforeach; ?>
         </div>
 
     </div>

@@ -24,7 +24,7 @@ $this->title = 'My Yii Application';
                 <h3><?php echo Html::encode("{$continent["name"]}"); ?></h3>
 
                 <table >
-                    <tr style="border: 1px">
+                    <tr style="border-width: thin">
                         <td>
                             <?php echo Html::encode("{$i}"); ?>
                         </td>

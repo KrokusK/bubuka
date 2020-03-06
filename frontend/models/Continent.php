@@ -67,7 +67,7 @@ class Continent extends \yii\db\ActiveRecord
         // Search data
         $queryContinent = Continent::find();
         // Add data filter
-        //$this->setDataFilter($query, $params);
+        $this->setDataFilter($query, $params);
         // Add pagination params
         //$this->setPaginationParams($query, $params);
         // get data
@@ -77,5 +77,25 @@ class Continent extends \yii\db\ActiveRecord
 
         // return data
         return $dataContinent;
+    }
+
+    /**
+     * Set data filter
+     *
+     * @params parameters for filtering
+     * @query object with data filter
+     *
+     */
+    private function setDataFilter($query, $params = [])
+    {
+        foreach ($this->assocCity as $name => $value) {
+            if (array_key_exists($value, $params) && $this->hasAttribute($name)) {
+                $this->$name = $params[$value];
+                if ($this->validate($name)) {
+                    $query->andWhere([$name => $params[$value]]);
+                }
+
+            }
+        }
     }
 }

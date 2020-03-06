@@ -133,7 +133,7 @@ class Continent extends \yii\db\ActiveRecord
         // ilike parameters
         $ilikeParams = ['name'];
 
-        foreach ($this->assocConutry as $name => $value) {
+        foreach ($this->assocCountry as $name => $value) {
             if (array_key_exists($value, $params) && $this->hasAttribute($name)) {
                 $this->$name = $params[$value];
                 if ($this->validate($name)) {

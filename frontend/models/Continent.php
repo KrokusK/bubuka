@@ -95,7 +95,7 @@ class Continent extends \yii\db\ActiveRecord
         // Add pagination params
         //$this->setPaginationParams($queryContinent, $params);
         // get data
-        $dataContinent = $queryContinent->orderBy('continent.id')
+        $dataContinent = $queryContinent->orderBy('country.name')
             ->with('countries','countries.cities')
             ->asArray()
             ->all();

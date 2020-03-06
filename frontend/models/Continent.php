@@ -194,7 +194,7 @@ class Continent extends \yii\db\ActiveRecord
     {
         // default values
         $defauftParams = [
-            'limitRec' => 10,
+            'limitRec' => 100,
             'offsetRec' => 0
         ];
 

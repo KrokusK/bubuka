@@ -93,14 +93,14 @@ class Continent extends \yii\db\ActiveRecord
         //    ->from('continent')
         //    ->join('LEFT JOIN', 'country', 'country.continent_id = continent.id');
         // Add data filter
-        //$this->setContinentFilter($queryContinent, $params);
-        //$this->setCountryFilter($queryContinent, $params);
-        //$this->setCityFilter($queryContinent, $params);
+        $this->setContinentFilter($queryContinent, $params);
+        $this->setCountryFilter($queryContinent, $params);
+        $this->setCityFilter($queryContinent, $params);
         // Add pagination params
         //$this->setPaginationParams($queryContinent, $params);
         // get data
         $dataContinent = $queryContinent->orderBy('continent.id')
-            //->with('countries','countries.cities')
+            ->with('countries','countries.cities')
             ->asArray()
             ->all();
 

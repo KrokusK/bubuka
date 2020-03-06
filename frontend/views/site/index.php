@@ -24,6 +24,7 @@ $this->title = 'My Yii Application';
                 <h3><?php echo Html::encode("{$continent["name"]}"); ?></h3>
 
                 <table style="border-width: thin">
+                    <?php foreach ($continent["countries"] as $country): ?>
                     <tr>
                         <td>
                             <?php echo Html::encode("{$i}"); ?>
@@ -32,12 +33,13 @@ $this->title = 'My Yii Application';
                             <?php echo Html::encode("{$continent["name"]}"); ?>
                         </td>
                         <td>
-                            <?php echo Html::encode("{$continent["countries"][0]["name"]}"); ?>
+                            <?php echo Html::encode("{$country["name"]}"); ?>
                         </td>
                         <td>
                             <?php echo Html::encode("{$continent["name"]}"); ?>
                         </td>
                     </tr>
+                    <?php endforeach; ?>
                 </table>
             <?php
              $i++;

@@ -131,7 +131,7 @@ class Continent extends \yii\db\ActiveRecord
     private function setCountryFilter($query, $params = [])
     {
         // ilike parameters
-        $ilikeParams = ['name'];
+        $ilikeParams = ['name1'];
 
         foreach ($this->assocCountry as $name => $value) {
             if (array_key_exists($value, $params) && $this->hasAttribute($name)) {

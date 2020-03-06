@@ -3,9 +3,9 @@
 use yii\db\Migration;
 
 /**
- * Class m200306_000015_import_tables
+ * Class m200306_000015_import_data_to_the_tables
  */
-class m200306_000015_import_tables extends Migration
+class m200306_000015_import_data_to_the_tables extends Migration
 {
     /**
      * {@inheritdoc}

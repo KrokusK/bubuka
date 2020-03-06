@@ -17,14 +17,14 @@ $this->title = 'My Yii Application';
         <div class="row">
             <?php echo var_dump($continents); ?>
 
-            <?php
-            $i = 1;
-            foreach ($continents as $continent):
-            ?>
+            <?php foreach ($continents as $continent): ?>
                 <h3><?php echo Html::encode("{$continent["name"]}"); ?></h3>
 
                 <table style="border-width: thin">
-                    <?php foreach ($continent["countries"] as $country): ?>
+                    <?php
+                        $i = 1;
+                        foreach ($continent["countries"] as $country):
+                    ?>
                         <?php foreach ($country["cities"] as $city): ?>
                         <tr>
                             <td>

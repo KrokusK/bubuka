@@ -13,18 +13,16 @@ $this->title = 'My Yii Application';
     <div class="body-content">
 
         <div class="row">
-            <?php foreach ($continents as $continent): ?>
             <table>
+
+                <?php foreach ($continents as $continent): ?>
                 <tr>
                     <td>
-                        test
-                    </td>
-                    <td>
-                        test
+                        <?php echo  $continent['name']; ?>
                     </td>
                 </tr>
+                <?php endforeach; ?>
             </table>
-            <?php endforeach; ?>
         </div>
 
     </div>

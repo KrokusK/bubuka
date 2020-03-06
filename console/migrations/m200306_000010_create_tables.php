@@ -76,7 +76,7 @@ class m200306_000010_create_tables extends Migration
         // drops foreign key for table city
         $this->dropForeignKey(
             'idx-city-country-id',
-            '{{%city}}',
+            '{{%city}}'
         );
 
         // drop index for column country_id

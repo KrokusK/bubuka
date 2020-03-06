@@ -84,7 +84,7 @@ class Continent extends \yii\db\ActiveRecord
         $queryContinent = Continent::find();
         // Add data filter
         $this->setCityFilter($queryContinent, $params);
-        //$this->setCountryFilter($queryContinent, $params);
+        $this->setCountryFilter($queryContinent, $params);
         // Add pagination params
         $this->setPaginationParams($queryContinent, $params);
         // get data
@@ -141,7 +141,7 @@ class Continent extends \yii\db\ActiveRecord
                     if (in_array($name, $ilikeParams)) {
                         $query->andWhere(['ilike', 'country.'.$name, $params[$value]]);
                     } else {
-                        $query->andWhere(["country.$name" => $params[$value]]);
+                        $query->andWhere(['country.'.$name => $params[$value]]);
                     }
                 }
             }

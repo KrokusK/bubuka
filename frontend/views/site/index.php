@@ -26,7 +26,7 @@ $this->title = 'My Yii Application';
                         $i = 1;
                         foreach ($continent["countries"] as $country):
 
-                            $country = ArrayHelper::multisort($country, ['name'], [SORT_ASC]);
+                            //$country = ArrayHelper::multisort($country, ['name'], [SORT_ASC]);
                     ?>
                             <?php foreach ($country["cities"] as $city): ?>
                             <tr>

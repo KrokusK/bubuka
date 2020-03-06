@@ -75,18 +75,18 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-     /*   // Get request params (GET method)
+        // Get request params (GET method)
         $getParams = Yii::$app->getRequest()->get();
 
         $model = new Continent();
         // Search data
         return $model->getDataContinent($getParams);
 
-        return $this->render('index', [
-            'Continents' => $model,
+        //return $this->render('index', [
+        //    'Continents' => $model,
             //'pagination' => $pagination,
-        ]);
-    */
+        //]);
+
 
 
         return $this->render('index');

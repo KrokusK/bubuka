@@ -15,40 +15,34 @@ $this->title = 'My Yii Application';
     <div class="body-content">
 
         <div class="row">
-            <table>
-                <tr>
-                    <td>
-                        <?php echo var_dump($continents); ?>
-                    </td>
-                </tr>
-                <?php
-                    $i = 1;
-                    foreach ($continents as $continent):
+            <?php echo var_dump($continents); ?>
+
+            <?php
+            $i = 1;
+            foreach ($continents as $continent):
                 ?>
+                <h3><?php echo Html::encode("{$continent["name"]}"); ?></h3>
+
+                <table  style="border: 1px">
                     <tr>
-                        <td collspan="4" style="border: 1px">
+                        <td>
+                            <?php echo Html::encode("{$i}"); ?>
+                        </td>
+                        <td>
+                            <?php echo Html::encode("{$continent["name"]}"); ?>
+                        </td>
+                        <td>
+                            <?php echo Html::encode("{$continent["name"]}"); ?>
+                        </td>
+                        <td>
                             <?php echo Html::encode("{$continent["name"]}"); ?>
                         </td>
                     </tr>
-                <tr>
-                    <td>
-                        <?php echo Html::encode("{$i}"); ?>
-                    </td>
-                    <td>
-                        <?php echo Html::encode("{$continent["name"]}"); ?>
-                    </td>
-                    <td>
-                        <?php echo Html::encode("{$continent["name"]}"); ?>
-                    </td>
-                    <td>
-                        <?php echo Html::encode("{$continent["name"]}"); ?>
-                    </td>
-                </tr>
+                </table>
                 <?php
-                    $i++;
-                    endforeach;
-                ?>
-            </table>
+                $i++;
+            endforeach;
+            ?>
         </div>
 
     </div>

@@ -26,6 +26,9 @@ class Continent extends \yii\db\ActiveRecord
     protected $assocCity = [
         'name' => 'name'
     ];
+    protected $assocCountry = [
+        'name' => 'name'
+    ];
     protected $assocPagination = [
         'limitRec' => 'limit',
         'offsetRec' => 'offset'
@@ -85,6 +88,7 @@ class Continent extends \yii\db\ActiveRecord
         $this->setPaginationParams($queryContinent, $params);
         // get data
         $dataContinent = $queryContinent->orderBy('id')
+            ->with('countries')
             ->asArray()
             ->all();
 
@@ -93,12 +97,10 @@ class Continent extends \yii\db\ActiveRecord
     }
 
     /**
-     * Set data filter for profile table
+     * Set data filter for continent table
      *
      * @params parameters for filtering
      * @query object with data filter
-     *
-     * @throws InvalidArgumentException if data not found or parameters is not validated
      */
     private function setCityFilter($query, $params = [])
     {
@@ -113,6 +115,32 @@ class Continent extends \yii\db\ActiveRecord
                         $query->andWhere(['ilike', $name, $params[$value]]);
                     } else {
                         $query->andWhere([$name => $params[$value]]);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Set data filter for country table
+     *
+     * @params parameters for filtering
+     * @query object with data filter
+     */
+    private function setCountryFilter($query, $params = [])
+    {
+        // ilike parameters
+        $ilikeParams = ['name'];
+
+        foreach ($this->assocConutry as $name => $value) {
+            if (array_key_exists($value, $params) && $this->hasAttribute($name)) {
+                $this->$name = $params[$value];
+                if ($this->validate($name)) {
+                    //$query->andWhere(['country.'.$name => $params[$value]]);
+                    if (in_array($name, $ilikeParams)) {
+                        $query->andWhere(['ilike', 'country.'.$name, $params[$value]]);
+                    } else {
+                        $query->andWhere(['country.'.$name => $params[$value]]);
                     }
                 }
             }

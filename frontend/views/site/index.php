@@ -24,26 +24,28 @@ $this->title = 'My Yii Application';
                     <?php
                         $i = 1;
                         foreach ($continent["countries"] as $country):
+
+                            $country = ArrayHelper::multisort($country, ['name'], [SORT_ASC]);
                     ?>
-                        <?php foreach ($country["cities"] as $city): ?>
-                        <tr>
-                            <td>
-                                <?php echo Html::encode("{$i}"); ?>
-                            </td>
-                            <td>
-                                <?php echo Html::encode("{$city["name"]}"); ?>
-                            </td>
-                            <td>
-                                <?php echo Html::encode("{$country["name"]}"); ?>
-                            </td>
-                            <td>
-                                <?php echo Html::encode("{$city["population"]}"); ?>
-                            </td>
-                        </tr>
-                        <?php
-                            $i++;
-                            endforeach;
-                        ?>
+                            <?php foreach ($country["cities"] as $city): ?>
+                            <tr>
+                                <td>
+                                    <?php echo Html::encode("{$i}"); ?>
+                                </td>
+                                <td>
+                                    <?php echo Html::encode("{$city["name"]}"); ?>
+                                </td>
+                                <td>
+                                    <?php echo Html::encode("{$country["name"]}"); ?>
+                                </td>
+                                <td>
+                                    <?php echo Html::encode("{$city["population"]}"); ?>
+                                </td>
+                            </tr>
+                            <?php
+                                $i++;
+                                endforeach;
+                            ?>
                     <?php endforeach; ?>
                 </table>
             <?php endforeach; ?>

@@ -17,7 +17,7 @@ $this->title = 'My Yii Application';
         <div class="row">
             <?php echo var_dump($continents); ?>
 
-            
+
         </div>
 
     </div>

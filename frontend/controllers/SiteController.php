@@ -80,16 +80,16 @@ class SiteController extends Controller
 
         $model = new Continent();
         // Search data
-        return $model->getDataContinent($getParams);
+        $model->getDataContinent($getParams);
 
-        //return $this->render('index', [
-        //    'Continents' => $model,
+        return $this->render('index', [
+            'Continents' => $model,
             //'pagination' => $pagination,
-        //]);
+        ]);
 
 
 
-        return $this->render('index');
+        //return $this->render('index');
     }
 
     /**

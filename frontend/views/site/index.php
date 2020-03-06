@@ -20,7 +20,7 @@ $this->title = 'My Yii Application';
             <?php
             $i = 1;
             foreach ($continents as $continent):
-                ?>
+            ?>
                 <h3><?php echo Html::encode("{$continent["name"]}"); ?></h3>
 
                 <table style="border-width: thin">
@@ -32,16 +32,16 @@ $this->title = 'My Yii Application';
                             <?php echo Html::encode("{$continent["name"]}"); ?>
                         </td>
                         <td>
-                            <?php echo Html::encode("{$continent["name"]}"); ?>
+                            <?php echo Html::encode("{$continent["countries"][0]["name"]}"); ?>
                         </td>
                         <td>
                             <?php echo Html::encode("{$continent["name"]}"); ?>
                         </td>
                     </tr>
                 </table>
-                <?php
-                $i++;
-            endforeach;
+            <?php
+             $i++;
+             endforeach;
             ?>
         </div>
 

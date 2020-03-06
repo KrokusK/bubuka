@@ -24,7 +24,9 @@ class Continent extends \yii\db\ActiveRecord
      * To solve this problem let's create an associative array
      */
     protected $assocCity = [
-        'name' => 'name',
+        'name' => 'name'
+    ];
+    protected $assocPagination = [
         'limitRec' => 'limit',
         'offsetRec' => 'offset'
     ];
@@ -78,7 +80,7 @@ class Continent extends \yii\db\ActiveRecord
         // Search data
         $queryContinent = Continent::find();
         // Add data filter
-        $this->setDataFilter($queryContinent, $params);
+        $this->setCityFilter($queryContinent, $params);
         // Add pagination params
         $this->setPaginationParams($queryContinent, $params);
         // get data
@@ -91,21 +93,28 @@ class Continent extends \yii\db\ActiveRecord
     }
 
     /**
-     * Set data filter
+     * Set data filter for profile table
      *
      * @params parameters for filtering
      * @query object with data filter
      *
+     * @throws InvalidArgumentException if data not found or parameters is not validated
      */
-    private function setDataFilter($query, $params = [])
+    private function setCityFilter($query, $params = [])
     {
+        // ilike parameters
+        $ilikeParams = ['name'];
+
         foreach ($this->assocCity as $name => $value) {
             if (array_key_exists($value, $params) && $this->hasAttribute($name)) {
                 $this->$name = $params[$value];
                 if ($this->validate($name)) {
-                    $query->andWhere([$name => $params[$value]]);
+                    if (in_array($name, $ilikeParams)) {
+                        $query->andWhere(['ilike', $this->assocCity, $name => $params[$value]]);
+                    } else {
+                        $query->andWhere([$name => $params[$value]]);
+                    }
                 }
-
             }
         }
     }
@@ -124,7 +133,7 @@ class Continent extends \yii\db\ActiveRecord
             'offsetRec' => 0
         ];
 
-        foreach ($this->assocCity as $name => $value) {
+        foreach ($this->assocPagination as $name => $value) {
             switch ($name) {
                 case 'limitRec':
                     if (array_key_exists($value, $params) && preg_match("/^[0-9]*$/",$params[$value])) {

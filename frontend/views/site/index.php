@@ -1,5 +1,7 @@
 <?php
 
+use yii\helpers\Html;
+
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
@@ -14,11 +16,15 @@ $this->title = 'My Yii Application';
 
         <div class="row">
             <table>
-
+                <tr>
+                    <td>
+                        <?php echo  v; ?>
+                    </td>
+                </tr>
                 <?php foreach ($continents as $continent): ?>
                 <tr>
                     <td>
-                        <?php echo  $continent['name']; ?>
+                        <?php echo Html::encode("{$continent["name"]}"); ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>

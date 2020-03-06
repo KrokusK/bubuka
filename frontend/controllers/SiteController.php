@@ -14,6 +14,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\models\Continent;
 
 /**
  * Site controller
@@ -74,7 +75,19 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        // Get request params (GET method)
+        $getParams = Yii::$app->getRequest()->get();
+
+        $model = new Continent();
+        // Search data
+        return $model->getDataContinent($getParams);
+
+        return $this->render('index', [
+            'Continents' => $model,
+            //'pagination' => $pagination,
+        ]);
+
+        //return $this->render('index');
     }
 
     /**

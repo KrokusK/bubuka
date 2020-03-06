@@ -3,6 +3,10 @@
 namespace frontend\models;
 
 use Yii;
+use yii\db\ActiveRecord;
+use yii\helpers\Json;
+use yii\helpers\ArrayHelper;
+use yii\base\InvalidArgumentException;
 
 /**
  * This is the model class for table "continent".
@@ -52,5 +56,26 @@ class Continent extends \yii\db\ActiveRecord
     public function getCountries()
     {
         return $this->hasMany(Country::className(), ['continent_id' => 'id']);
+    }
+
+    /**
+     * Gets data about Continent, countries and cities.
+     *
+     */
+    public function getDataContinent($params = [])
+    {
+        // Search data
+        $queryContinent = Continent::find();
+        // Add data filter
+        //$this->setDataFilter($query, $params);
+        // Add pagination params
+        //$this->setPaginationParams($query, $params);
+        // get data
+        $dataContinent = $query->orderBy('id')
+            ->asArray()
+            ->all();
+
+        // return data
+        return $dataContinent;
     }
 }

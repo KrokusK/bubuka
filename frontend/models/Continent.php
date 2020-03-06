@@ -24,10 +24,10 @@ class Continent extends \yii\db\ActiveRecord
      * To solve this problem let's create an associative array
      */
     protected $assocCity = [
-        'name' => 'name'
+        'name' => 'nameCity'
     ];
     protected $assocCountry = [
-        'name' => 'name'
+        'name' => 'nameCountry'
     ];
     protected $assocPagination = [
         'limitRec' => 'limit',

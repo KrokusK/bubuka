@@ -40,13 +40,13 @@ $this->title = 'My Yii Application';
                                 <?php echo Html::encode("{$city["population"]}"); ?>
                             </td>
                         </tr>
-                        <?php endforeach; ?>
+                        <?php
+                            $i++;
+                            endforeach;
+                        ?>
                     <?php endforeach; ?>
                 </table>
-            <?php
-             $i++;
-             endforeach;
-            ?>
+            <?php endforeach; ?>
         </div>
 
     </div>

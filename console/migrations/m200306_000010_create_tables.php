@@ -73,6 +73,18 @@ class m200306_000010_create_tables extends Migration
      */
     public function safeDown()
     {
+        // drops foreign key for table city
+        $this->dropForeignKey(
+            'idx-city-country-id',
+            '{{%city}}',
+        );
+
+        // drop index for column country_id
+        $this->dropIndex(
+            'fk-city-country-id',
+            '{{%city}}'
+        );
+
         // drops foreign key for table country
         $this->dropForeignKey(
             'fk-country-continent-id',
@@ -86,6 +98,7 @@ class m200306_000010_create_tables extends Migration
         );
 
         // drop profile tables
+        $this->dropTable('{{%city}}');
         $this->dropTable('{{%country}}');
         $this->dropTable('{{%continent}}');
     }

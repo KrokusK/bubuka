@@ -67,7 +67,7 @@ class Continent extends \yii\db\ActiveRecord
         // Search data
         $queryContinent = Continent::find();
         // Add data filter
-        $this->setDataFilter($query, $params);
+        $this->setDataFilter($queryContinent, $params);
         // Add pagination params
         //$this->setPaginationParams($query, $params);
         // get data

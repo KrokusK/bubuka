@@ -23,11 +23,15 @@ class Continent extends \yii\db\ActiveRecord
      * the parameter names may not match the table field names.
      * To solve this problem let's create an associative array
      */
-    protected $assocCity = [
-        'name' => 'nameCity'
+    protected $assocContinent = [
+        'name' => 'nameContinent'
     ];
     protected $assocCountry = [
         'name' => 'nameCountry'
+    ];
+    protected $assocCity = [
+        'name' => 'nameCity',
+        'population' => 'population'
     ];
     protected $assocPagination = [
         'limitRec' => 'limit',
@@ -83,9 +87,11 @@ class Continent extends \yii\db\ActiveRecord
         // Search data
         $queryContinent = Continent::find()
             ->leftJoin('country','country.continent_id = continent.id');
+            //->leftJoin('country','country.continent_id = continent.id');
         // Add data filter
-        $this->setCityFilter($queryContinent, $params);
+        $this->setContinentFilter($queryContinent, $params);
         $this->setCountryFilter($queryContinent, $params);
+        //$this->setCityFilter($queryContinent, $params);
         // Add pagination params
         $this->setPaginationParams($queryContinent, $params);
         // get data
@@ -104,12 +110,12 @@ class Continent extends \yii\db\ActiveRecord
      * @params parameters for filtering
      * @query object with data filter
      */
-    private function setCityFilter($query, $params = [])
+    private function setContinentFilter($query, $params = [])
     {
         // ilike parameters
         $ilikeParams = ['name'];
 
-        foreach ($this->assocCity as $name => $value) {
+        foreach ($this->assocContinent as $name => $value) {
             if (array_key_exists($value, $params) && $this->hasAttribute($name)) {
                 $this->$name = $params[$value];
                 if ($this->validate($name)) {
@@ -143,6 +149,31 @@ class Continent extends \yii\db\ActiveRecord
                         $query->andWhere(['ilike', 'country.'.$name, $params[$value]]);
                     } else {
                         $query->andWhere(['country.'.$name => $params[$value]]);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Set data filter for continent table
+     *
+     * @params parameters for filtering
+     * @query object with data filter
+     */
+    private function setCityFilter($query, $params = [])
+    {
+        // ilike parameters
+        $ilikeParams = ['name'];
+
+        foreach ($this->assocCity as $name => $value) {
+            if (array_key_exists($value, $params) && $this->hasAttribute($name)) {
+                $this->$name = $params[$value];
+                if ($this->validate($name)) {
+                    if (in_array($name, $ilikeParams)) {
+                        $query->andWhere(['ilike', 'city.'.$name, $params[$value]]);
+                    } else {
+                        $query->andWhere([$name => 'city.'.$params[$value]]);
                     }
                 }
             }

@@ -122,7 +122,7 @@ class Continent extends \yii\db\ActiveRecord
                     if (in_array($name, $ilikeParams)) {
                         $query->andWhere(['ilike', 'continent.'.$name, $params[$value]]);
                     } else {
-                        $query->andWhere([$name => 'continent.'.$params[$value]]);
+                        $query->andWhere(['continent.'.$name => $params[$value]]);
                     }
                 }
             }
@@ -177,7 +177,7 @@ class Continent extends \yii\db\ActiveRecord
                     if (in_array($name, $ilikeParams)) {
                         $query->andWhere(['ilike', 'city.'.$name, $params[$value]]);
                     } else {
-                        $query->andWhere([$name => 'city.'.$params[$value]]);
+                        $query->andWhere(['city.'.$name => $params[$value]]);
                     }
                 }
             }

@@ -15,9 +15,11 @@ class m200306_000015_import_data_to_the_tables extends Migration
         // flush tables
         $this->delete('{{%continent}}');
         $this->delete('{{%country}}');
+        $this->delete('{{%city}}');
 
         $this->db->createCommand()->resetSequence('{{%continent}}', 1)->execute();
         $this->db->createCommand()->resetSequence('{{%country}}', 1)->execute();
+        $this->db->createCommand()->resetSequence('{{%city}}', 1)->execute();
 
         // import to the continent table
         $this->insert('{{%continent}}', [
@@ -102,31 +104,211 @@ class m200306_000015_import_data_to_the_tables extends Migration
             'continent_id' => 3,
             'name' => 'Танзания'
         ]);
-
-        // import to the city table
-        $this->insert('{{%city}}', [
+        $this->insert('{{%country}}', [
             'country_id' => 4,
             'name' => 'Россия'
         ]);
-        $this->insert('{{%city}}', [
+        $this->insert('{{%country}}', [
             'country_id' => 4,
             'name' => 'Турция'
         ]);
-        $this->insert('{{%city}}', [
+        $this->insert('{{%country}}', [
             'country_id' => 4,
             'name' => 'Франция'
         ]);
-        $this->insert('{{%city}}', [
+        $this->insert('{{%country}}', [
             'country_id' => 4,
             'name' => 'Великобритания'
         ]);
-        $this->insert('{{%city}}', [
+        $this->insert('{{%country}}', [
             'country_id' => 4,
             'name' => 'Испания'
         ]);
-        $this->insert('{{%city}}', [
+        $this->insert('{{%country}}', [
             'country_id' => 4,
             'name' => 'Италия'
+        ]);
+
+        // import to the city table
+        $this->insert('{{%city}}', [
+            'country_id' => 1,
+            'name' => 'Токио',
+            'population' => 38500
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 2,
+            'name' => 'Индонезия',
+            'population' => 32275
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 3,
+            'name' => 'Дели',
+            'population' => 27280
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 4,
+            'name' => 'Манила',
+            'population' => 24650
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 5,
+            'name' => 'Шанхай',
+            'population' => 24115
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 3,
+            'name' => 'Мумбаи',
+            'population' => 23265
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 5,
+            'name' => 'Пекин',
+            'population' => 21200
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 5,
+            'name' => 'Гуанчжоу',
+            'population' => 20060
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 1,
+            'name' => 'Осака',
+            'population' => 17165
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 6,
+            'name' => 'Нью-Йорк',
+            'population' => 21757
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 7,
+            'name' => 'Сан-Пауло',
+            'population' => 21100
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 8,
+            'name' => 'Мехико',
+            'population' => 20500
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 6,
+            'name' => 'Лос-Анджелес',
+            'population' => 15620
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 9,
+            'name' => 'Буэнос-Айрес',
+            'population' => 15520
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 10,
+            'name' => 'Лима',
+            'population' => 11300
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 6,
+            'name' => 'Чикаго',
+            'population' => 9100
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 6,
+            'name' => 'Даллас',
+            'population' => 6600
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 6,
+            'name' => 'Сан-Хосе',
+            'population' => 6500
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 11,
+            'name' => 'Каир',
+            'population' => 16545
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 12,
+            'name' => 'Лагос',
+            'population' => 13900
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 13,
+            'name' => 'Киншаса',
+            'population' => 12500
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 14,
+            'name' => 'Йоханнесбург',
+            'population' => 9115
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 15,
+            'name' => 'Луанда',
+            'population' => 7560
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 16,
+            'name' => 'Найроби',
+            'population' => 5700
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 17,
+            'name' => 'Дар-эс-Салам',
+            'population' => 4980
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 11,
+            'name' => 'Александрия',
+            'population' => 4960
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 11,
+            'name' => 'Гиза',
+            'population' => 3300
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 18,
+            'name' => 'Москва',
+            'population' => 16855
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 19,
+            'name' => 'Стамбул',
+            'population' => 13995
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 20,
+            'name' => 'Париж',
+            'population' => 10900
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 21,
+            'name' => 'Лондон',
+            'population' => 10500
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 22,
+            'name' => 'Мадрид',
+            'population' => 6385
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 23,
+            'name' => 'Милан',
+            'population' => 5200
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 18,
+            'name' => 'Санкт-Петербург',
+            'population' => 5175
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 19,
+            'name' => 'Анкара',
+            'population' => 4850
+        ]);
+        $this->insert('{{%city}}', [
+            'country_id' => 22,
+            'name' => 'Барселона',
+            'population' => 4840
         ]);
     }
 
@@ -138,8 +320,10 @@ class m200306_000015_import_data_to_the_tables extends Migration
         // flush tables
         $this->delete('{{%continent}}');
         $this->delete('{{%country}}');
+        $this->delete('{{%city}}');
 
         $this->db->createCommand()->resetSequence('{{%continent}}', 1)->execute();
         $this->db->createCommand()->resetSequence('{{%country}}', 1)->execute();
+        $this->db->createCommand()->resetSequence('{{%city}}', 1)->execute();
     }
 }

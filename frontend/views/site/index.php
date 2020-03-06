@@ -23,8 +23,8 @@ $this->title = 'My Yii Application';
                 ?>
                 <h3><?php echo Html::encode("{$continent["name"]}"); ?></h3>
 
-                <table  style="border: 1px">
-                    <tr>
+                <table >
+                    <tr style="border: 1px">
                         <td>
                             <?php echo Html::encode("{$i}"); ?>
                         </td>

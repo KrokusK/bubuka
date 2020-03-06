@@ -105,27 +105,27 @@ class m200306_000015_import_data_to_the_tables extends Migration
             'name' => 'Танзания'
         ]);
         $this->insert('{{%country}}', [
-            'country_id' => 4,
+            'continent_id' => 4,
             'name' => 'Россия'
         ]);
         $this->insert('{{%country}}', [
-            'country_id' => 4,
+            'continent_id' => 4,
             'name' => 'Турция'
         ]);
         $this->insert('{{%country}}', [
-            'country_id' => 4,
+            'continent_id' => 4,
             'name' => 'Франция'
         ]);
         $this->insert('{{%country}}', [
-            'country_id' => 4,
+            'continent_id' => 4,
             'name' => 'Великобритания'
         ]);
         $this->insert('{{%country}}', [
-            'country_id' => 4,
+            'continent_id' => 4,
             'name' => 'Испания'
         ]);
         $this->insert('{{%country}}', [
-            'country_id' => 4,
+            'continent_id' => 4,
             'name' => 'Италия'
         ]);
 

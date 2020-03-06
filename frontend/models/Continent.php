@@ -89,7 +89,7 @@ class Continent extends \yii\db\ActiveRecord
             //->leftJoin('country','country.continent_id = continent.id');
             //->innerJoin('city','city.country_id = country.id');
         $queryContinent = (new \yii\db\Query())
-            ->select(*)
+            ->select('*')
             ->from('continent')
             ->join('LEFT JOIN', 'country', 'country.continent_id = continent.id');
         // Add data filter

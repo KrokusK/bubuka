@@ -84,7 +84,7 @@ class Continent extends \yii\db\ActiveRecord
         $queryContinent = Continent::find();
         // Add data filter
         $this->setCityFilter($queryContinent, $params);
-        $this->setCountryFilter($queryContinent, $params);
+        //$this->setCountryFilter($queryContinent, $params);
         // Add pagination params
         $this->setPaginationParams($queryContinent, $params);
         // get data

@@ -86,8 +86,8 @@ class Continent extends \yii\db\ActiveRecord
     {
         // Search data
         $queryContinent = Continent::find()
-            ->leftJoin('country','country.continent_id = continent.id');
-            //->innerJoin('city','city.country_id = country.id');
+            ->leftJoin('country','country.continent_id = continent.id')
+            ->innerJoin('city','city.country_id = country.id');
         //$queryContinent = (new \yii\db\Query())
         //    ->select('*')
         //    ->from('continent')

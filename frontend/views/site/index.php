@@ -21,13 +21,27 @@ $this->title = 'My Yii Application';
                         <?php echo var_dump($continents); ?>
                     </td>
                 </tr>
-                <?php foreach ($continents as $continent): ?>
+                <?php
+                    $i = 1;
+                    foreach ($continents as $continent):
+                ?>
+                    <tr>
+                        <td collspan="2">
+                            <?php echo Html::encode("{$i}"); ?>
+                        </td>
+                    </tr>
                 <tr>
                     <td>
                         <?php echo Html::encode("{$continent["name"]}"); ?>
                     </td>
+                    <td>
+                        <?php echo Html::encode("{$continent["name"]}"); ?>
+                    </td>
                 </tr>
-                <?php endforeach; ?>
+                <?php
+                    $i++;
+                    endforeach;
+                ?>
             </table>
         </div>
 

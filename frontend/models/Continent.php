@@ -114,9 +114,9 @@ class Continent extends \yii\db\ActiveRecord
                 $this->$name = $params[$value];
                 if ($this->validate($name)) {
                     if (in_array($name, $ilikeParams)) {
-                        $query->andWhere(['ilike', $name, $params[$value]]);
+                        $query->andWhere(['ilike', 'continent.'.$name, $params[$value]]);
                     } else {
-                        $query->andWhere([$name => $params[$value]]);
+                        $query->andWhere([$name => 'continent.'.$params[$value]]);
                     }
                 }
             }
@@ -132,7 +132,7 @@ class Continent extends \yii\db\ActiveRecord
     private function setCountryFilter($query, $params = [])
     {
         // ilike parameters
-        $ilikeParams = ['name1'];
+        $ilikeParams = ['name'];
 
         foreach ($this->assocCountry as $name => $value) {
             if (array_key_exists($value, $params) && $this->hasAttribute($name)) {

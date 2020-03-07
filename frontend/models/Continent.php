@@ -94,7 +94,7 @@ class Continent extends \yii\db\ActiveRecord
             //->select(['continent.name','country.name','city.name','city.population'])
             ->select(['continent.*','c.*','city.*'])
             //->select(['country.*'])
-            ->leftJoin('country c','country.continent_id = continent.id')
+            ->leftJoin('country as c','country.continent_id = continent.id')
             ->leftJoin('city','city.country_id = country.id')
             //->groupBy(['continent.id', 'country.name', 'city.name', 'city.population'])
             //->groupBy(['continent.id', 'city.population'])

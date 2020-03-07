@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
+use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 

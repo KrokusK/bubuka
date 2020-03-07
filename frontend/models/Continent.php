@@ -109,8 +109,8 @@ class Continent extends \yii\db\ActiveRecord
         */
         $queryContinent = Continent::find()
             ->joinWith('countries')
-            ->joinWith('countries.cities');
-            //->where(['country.continent_id = continent.id'])
+            ->joinWith('countries.cities')
+            ->orderBy('continent.name');
         $dataContinent = $queryContinent
             ->asArray()
             ->all();

@@ -85,13 +85,13 @@ class Continent extends \yii\db\ActiveRecord
     public function getDataContinent($params = [])
     {
         // Search data
-        /*
+        
         //$sql = 'SELECT * FROM customer WHERE status=:status';
         //$customers = Customer::findBySql($sql, [':status' => Customer::STATUS_INACTIVE])->all();
         $queryContinent = Continent::find()
             //->select(['continent.name','country.name','city.name','city.population'])
             //->select(['continent.*','country.*','city.*'])
-            ->select(['country.*'])
+            //->select(['country.*'])
             ->leftJoin('country','country.continent_id = continent.id')
             ->leftJoin('city','city.country_id = country.id')
             ->orderBy('continent.name');
@@ -103,10 +103,11 @@ class Continent extends \yii\db\ActiveRecord
         $this->setPaginationParams($queryContinent, $params);
         // get data
         $dataContinent = $queryContinent
-            //->with('countries','countries.cities')
+            ->with('countries','countries.cities')
             ->asArray()
             ->all();
-        */
+
+        /*
         $queryContinent = Continent::find()
             ->joinWith('countries')
             ->joinWith('countries.cities')
@@ -114,7 +115,7 @@ class Continent extends \yii\db\ActiveRecord
         $dataContinent = $queryContinent
             ->asArray()
             ->all();
-
+        */
 
         // return data
         return $dataContinent;

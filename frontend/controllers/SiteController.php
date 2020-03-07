@@ -84,6 +84,7 @@ class SiteController extends Controller
 
         return $this->render('index', [
             'continents' => $dataContinent,
+            'getParams' => $getParams,
             //'pagination' => $pagination,
         ]);
 

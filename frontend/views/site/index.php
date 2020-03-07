@@ -25,19 +25,19 @@ $this->title = 'My Yii Application';
                         <ul class="nav navbar-nav navbar-left">
                             <li>
                                 <label class="control-label" for="ad-category">Континент</label>
-                                <input type="text" class="form-control" placeholder="Search" id="continent-search">
-                            </li>
-                            <li>
-                                <label class="control-label" for="ad-category">Город</label>
-                                <input type="text" class="form-control" placeholder="Search" id="city-search">
+                                <input type="text" class="form-control" placeholder="Search" id="continent-search" value="<?php echo $getParams['nameContinent']; ?>">
                             </li>
                             <li>
                                 <label class="control-label" for="ad-category">Страна</label>
-                                <input type="text" class="form-control" placeholder="Search" id="country-search">
+                                <input type="text" class="form-control" placeholder="Search" id="country-search" value="<?php echo $getParams['nameCountry']; ?>">
+                            </li>
+                            <li>
+                                <label class="control-label" for="ad-category">Город</label>
+                                <input type="text" class="form-control" placeholder="Search" id="city-search" value="<?php echo $getParams['nameCity']; ?>">
                             </li>
                             <li>
                                 <label class="control-label" for="ad-category">Численность</label>
-                                <input type="text" class="form-control" placeholder="Search" id="population-search">
+                                <input type="text" class="form-control" placeholder="Search" id="population-search" value="<?php echo $getParams['population']; ?>">
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">

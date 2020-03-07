@@ -86,7 +86,8 @@ class Continent extends \yii\db\ActiveRecord
     {
         // Search data
         $queryContinent = Continent::find()
-            ->select(['continent.name','country.name','city.name','city.population'])
+            //->select(['continent.name','country.name','city.name','city.population'])
+            ->select(['continent.*','country.*','city.*'])
             ->leftJoin('country','country.continent_id = continent.id')
             ->leftJoin('city','city.country_id = country.id')
             ->orderBy('continent.name');
@@ -98,7 +99,7 @@ class Continent extends \yii\db\ActiveRecord
         $this->setPaginationParams($queryContinent, $params);
         // get data
         $dataContinent = $queryContinent
-            ->with('countries','countries.cities')
+            //->with('countries','countries.cities')
             ->asArray()
             ->all();
 

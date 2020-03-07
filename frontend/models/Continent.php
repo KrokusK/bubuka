@@ -92,18 +92,19 @@ class Continent extends \yii\db\ActiveRecord
         //$customers = Customer::findBySql($sql, [':status' => Customer::STATUS_INACTIVE])->all();
         $queryContinent = Continent::find()
             //->select(['continent.name','country.name','city.name','city.population'])
-            ->select(['continent.*','country.*','city.*'])
+            ->select(['continent.*','country.*'])
             //->select(['country.*'])
             ->leftJoin('country','country.continent_id = continent.id')
-            ->leftJoin('city','city.country_id = country.id')
+            //->leftJoin('city','city.country_id = country.id')
             //->groupBy(['continent.id', 'country.name', 'city.name', 'city.population'])
             //->groupBy(['continent.id', 'city.population'])
-            ->orderBy(['city.population' => SORT_ASC]);
+            //->orderBy(['city.population' => SORT_ASC]);
+            ->orderBy(['country.name' => SORT_ASC]);
             //->orderBy(['continent.name' => SORT_ASC, 'country.name' => SORT_ASC, 'city.name' => SORT_ASC]);
         // Add data filter
         $this->setContinentFilter($queryContinent, $params);
         $this->setCountryFilter($queryContinent, $params);
-        $this->setCityFilter($queryContinent, $params);
+        //$this->setCityFilter($queryContinent, $params);
         // Add pagination params
         $this->setPaginationParams($queryContinent, $params);
         // get data

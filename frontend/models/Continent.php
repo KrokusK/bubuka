@@ -110,8 +110,8 @@ class Continent extends \yii\db\ActiveRecord
         $dataContinent = $queryContinent
             ->with([
                 //'countries',
-                'countries' => function ($query) {
-                    $query->andWhere(['name' => 'Китай']);
+                'countries' => function ($queryContinent) {
+                    $queryContinent->andWhere(['name' => $params['nameCountry']]);
                 },
                 'countries.cities'
             ])

@@ -16,6 +16,47 @@ $this->title = 'My Yii Application';
     <div class="body-content">
 
         <div class="row">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li>
+                                <label class="control-label" for="ad-category">Континент</label>
+                                <input type="text" class="form-control" placeholder="Search" id="continent-search">
+                            </li>
+                            <li>
+                                <label class="control-label" for="ad-category">Город</label>
+                                <input type="text" class="form-control" placeholder="Search" id="city-search">
+                            </li>
+                            <li>
+                                <label class="control-label" for="ad-category">Страна</label>
+                                <input type="text" class="form-control" placeholder="Search" id="country-search">
+                            </li>
+                            <li>
+                                <label class="control-label" for="ad-category">Численность</label>
+                                <input type="text" class="form-control" placeholder="Search" id="population-search">
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <?php ActiveForm::begin(['class' => 'navbar-form navbar-right','id' => 'form-search', 'action' => Yii::$app->urlManager->createUrl('site/index')]); ?>
+                                <table>
+                                    <tr>
+                                        <td><button type="submit" class="btn btn-default" id="btn-search">Submit</button></td>
+                                    </tr>
+                                </table>
+                                <?php ActiveForm::end(); ?>
+                            </li>
+                        </ul>
+
+                    </div><!-- /.navbar-collapse -->
+
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+        <div class="row">
             <?php echo var_dump($continents); ?>
 
             <?php foreach ($continents as $continent): ?>

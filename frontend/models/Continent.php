@@ -85,6 +85,7 @@ class Continent extends \yii\db\ActiveRecord
     public function getDataContinent($params = [])
     {
         // Search data
+        //  select * from continent left join country on (country.continent_id = continent.id) left join city on (city.country_id = country.id) group by continent.id, country.id, city.id, city.population order by city.population DESC
 
         //$sql = 'SELECT * FROM customer WHERE status=:status';
         //$customers = Customer::findBySql($sql, [':status' => Customer::STATUS_INACTIVE])->all();
@@ -95,8 +96,8 @@ class Continent extends \yii\db\ActiveRecord
             ->leftJoin('country','country.continent_id = continent.id')
             ->leftJoin('city','city.country_id = country.id')
             //->groupBy(['continent.id', 'country.name', 'city.name', 'city.population'])
-            ->groupBy(['continent.id', 'city.population'])
-            ->orderBy(['city.population' => SORT_DESC]);
+            //->groupBy(['continent.id', 'city.population'])
+            //->orderBy(['city.population' => SORT_DESC]);
             //->orderBy(['continent.name' => SORT_ASC, 'country.name' => SORT_ASC, 'city.name' => SORT_ASC]);
         // Add data filter
         $this->setContinentFilter($queryContinent, $params);

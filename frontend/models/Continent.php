@@ -85,6 +85,7 @@ class Continent extends \yii\db\ActiveRecord
     public function getDataContinent($params = [])
     {
         // Search data
+        /*
         //$sql = 'SELECT * FROM customer WHERE status=:status';
         //$customers = Customer::findBySql($sql, [':status' => Customer::STATUS_INACTIVE])->all();
         $queryContinent = Continent::find()
@@ -105,6 +106,13 @@ class Continent extends \yii\db\ActiveRecord
             //->with('countries','countries.cities')
             ->asArray()
             ->all();
+        */
+        $queryContinent = Continent::find()
+            ->joinWith('countries')
+            ->where(['country.continent_id' => 'continent.id'])
+            ->asArray()
+            ->all();
+
 
         // return data
         return $dataContinent;

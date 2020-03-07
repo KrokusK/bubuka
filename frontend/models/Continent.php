@@ -89,7 +89,8 @@ class Continent extends \yii\db\ActiveRecord
         //$customers = Customer::findBySql($sql, [':status' => Customer::STATUS_INACTIVE])->all();
         $queryContinent = Continent::find()
             //->select(['continent.name','country.name','city.name','city.population'])
-            ->select(['continent.*','country.*','city.*'])
+            //->select(['continent.*','country.*','city.*'])
+            ->select(['continent.*, country.*, city.*'])
             ->leftJoin('country','country.continent_id = continent.id')
             ->leftJoin('city','city.country_id = country.id')
             ->orderBy('continent.name');

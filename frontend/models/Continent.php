@@ -108,6 +108,7 @@ class Continent extends \yii\db\ActiveRecord
         $this->setPaginationParams($queryContinent, $params);
         // get data
         $dataContinent = $queryContinent
+            /*
             ->with([
                 //'countries',
                 'countries' => function ($queryContinent) {
@@ -115,6 +116,7 @@ class Continent extends \yii\db\ActiveRecord
                 },
                 'countries.cities'
             ])
+            */
             ->asArray()
             ->all();
 

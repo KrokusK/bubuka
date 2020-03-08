@@ -108,13 +108,14 @@ class Continent extends \yii\db\ActiveRecord
             //->groupBy(['continent.id', 'city.population'])
             //->orderBy(['city.population' => SORT_DESC]);
             //->orderBy(['city.population' => SORT_ASC]);
+            $this->setOrderFields($queryContinent, $params);
             //->orderBy(['continent.name' => SORT_ASC, 'country.name' => SORT_ASC, 'city.name' => SORT_ASC]);
         // Add data filter
         $this->setContinentFilter($queryContinent, $params);
         $this->setCountryFilter($queryContinent, $params);
         $this->setCityFilter($queryContinent, $params);
         // Add order params
-        $this->setOrderFields($queryContinent, $params);
+        //$this->setOrderFields($queryContinent, $params);
         // Add pagination params
         $this->setPaginationParams($queryContinent, $params);
         // get data

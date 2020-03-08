@@ -342,4 +342,19 @@ class Continent extends \yii\db\ActiveRecord
             }
         }
     }
+
+    private function getArrayWithContinentIndex($arrayData) {
+        $arrayContinentData = [];
+
+        foreach ($arrayData as $rowData):
+            $tempArray = [
+                'country' => $arrayData['country'],
+                'city' => $arrayData['city'],
+                'population' => $arrayData['population']
+            ];
+            array_push($arrayContinentData['continent'], $tempArray);
+        endforeach;
+
+        return $arrayContinentData;
+    }
 }

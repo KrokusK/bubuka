@@ -82,8 +82,11 @@ class SiteController extends Controller
         // Search data
         $dataContinent = $model->getDataContinent($getParams);
 
+        // Create a array with continent index
+        $arrayData = $model->getArrayWithContinentIndex($dataContinent);
+
         return $this->render('index', [
-            'continents' => $dataContinent,
+            'continents' => $arrayData,
             'getParams' => $getParams,
             //'pagination' => $pagination,
         ]);

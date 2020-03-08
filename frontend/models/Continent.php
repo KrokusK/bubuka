@@ -33,6 +33,10 @@ class Continent extends \yii\db\ActiveRecord
         'name' => 'nameCity',
         'population' => 'population'
     ];
+    protected $assocOrderBy = [
+        'sortField' => 'sortField',
+        'sortTrend' => 'sortTrend',
+    ];
     protected $assocPagination = [
         'limitRec' => 'limit',
         'offsetRec' => 'offset'
@@ -261,6 +265,35 @@ class Continent extends \yii\db\ActiveRecord
                         $query->andWhere(['ilike', 'city.'.$name, $params[$value]]);
                     } else {
                         $query->andWhere(['city.'.$name => $params[$value]]);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Set data order
+     *
+     * @params parameters for filtering
+     * @query object with data filter
+     */
+    private function setOrderFields($query, $params = [])
+    {
+        //  parameters
+        $ilikeParams = [
+            'sortNameContinent' => 'continent.name',
+            'sortNameCity' => 'city.name',
+            'sortPopulationCity' => 'city.population'
+        ];
+
+        foreach ($this->assocContinent as $name => $value) {
+            if (array_key_exists($value, $params) && $this->hasAttribute($name)) {
+                $this->$name = $params[$value];
+                if ($this->validate($name)) {
+                    if (in_array($name, $ilikeParams)) {
+                        $query->andWhere(['ilike', 'continent.'.$name, $params[$value]]);
+                    } else {
+                        $query->andWhere(['continent.'.$name => $params[$value]]);
                     }
                 }
             }

@@ -85,11 +85,50 @@ class Continent extends \yii\db\ActiveRecord
     public function getDataContinent($params = [])
     {
         // Search data
-        //  select * from continent left join country on (country.continent_id = continent.id) left join city on (city.country_id = country.id) group by continent.id, country.id, city.id, city.population order by city.population DESC
-
+        /*
+         select * from continent
+            left join country on (country.continent_id = continent.id)
+            left join city on (city.country_id = country.id)
+            where country.name ilike '%инд%'
+            group by continent.id, country.id, city.id, city.population
+            order by city.population DESC
+         */
 
         //$sql = 'SELECT * FROM customer WHERE status=:status';
         //$customers = Customer::findBySql($sql, [':status' => Customer::STATUS_INACTIVE])->all();
+
+        $queryContinent = City::find()
+            //->select(['continent.name','country.name','city.name','city.population'])
+            ->select(['continent.*','country.*','city.*'])
+            //->select(['country.*'])
+            ->leftJoin('country','city.country_id = country.id')
+            ->leftJoin('continent','country.continent_id = continent.id')
+            //->groupBy(['continent.id', 'country.name', 'city.name', 'city.population'])
+            //->groupBy(['continent.id', 'city.population'])
+            ->orderBy(['city.population' => SORT_ASC]);
+        //->orderBy(['city.population' => SORT_ASC]);
+        //->orderBy(['continent.name' => SORT_ASC, 'country.name' => SORT_ASC, 'city.name' => SORT_ASC]);
+        // Add data filter
+        $this->setContinentFilter($queryContinent, $params);
+        $this->setCountryFilter($queryContinent, $params);
+        $this->setCityFilter($queryContinent, $params);
+        // Add pagination params
+        $this->setPaginationParams($queryContinent, $params);
+        // get data
+        $dataContinent = $queryContinent
+
+            //->with([
+            //    //'countries',
+            //    'countries' => function ($queryContinent) {
+            //        $queryContinent->andWhere(['name' => $params['nameCountry']]);
+            //    },
+            //    'countries.cities'
+            //])
+
+            ->asArray()
+            ->all();
+
+        /*
         $queryContinent = Continent::find()
             //->select(['continent.name','country.name','city.name','city.population'])
             ->select(['continent.*','country.*','city.*'])
@@ -109,18 +148,18 @@ class Continent extends \yii\db\ActiveRecord
         $this->setPaginationParams($queryContinent, $params);
         // get data
         $dataContinent = $queryContinent
-            /*
-            ->with([
-                //'countries',
-                'countries' => function ($queryContinent) {
-                    $queryContinent->andWhere(['name' => $params['nameCountry']]);
-                },
-                'countries.cities'
-            ])
-            */
+
+            //->with([
+            //    //'countries',
+            //    'countries' => function ($queryContinent) {
+            //        $queryContinent->andWhere(['name' => $params['nameCountry']]);
+            //    },
+            //    'countries.cities'
+            //])
+
             ->asArray()
             ->all();
-
+        */
 
         /*
         $queryContinent = Continent::find()

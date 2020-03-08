@@ -90,7 +90,7 @@ class Continent extends \yii\db\ActiveRecord
             left join country on (country.continent_id = continent.id)
             left join city on (city.country_id = country.id)
             where country.name ilike '%инд%'
-            group by continent.id, country.id, city.id, city.population
+            --group by continent.id, country.id, city.id, city.population
             order by city.population DESC
          */
 
@@ -100,7 +100,7 @@ class Continent extends \yii\db\ActiveRecord
             //->select(['country.*'])
             ->leftJoin('country','country.continent_id = continent.id')
             ->leftJoin('city','city.country_id = country.id')
-            ->groupBy(['continent.id', 'country.id', 'city.id'])
+            //->groupBy(['continent.id', 'country.id', 'city.id'])
             //->groupBy(['continent.id', 'city.population'])
             ->orderBy(['city.population' => SORT_DESC]);
             //->orderBy(['city.population' => SORT_ASC]);

@@ -357,7 +357,7 @@ class Continent extends \yii\db\ActiveRecord
                 'city' => $rowData['city'],
                 'population' => $rowData['population']
             ];
-            if (empty($arrayContinentData['continent'])) $arrayContinentData[$rowData['continent']] = [];
+            if (empty($arrayContinentData[$rowData['continent']])) $arrayContinentData[$rowData['continent']] = [];
             array_push($arrayContinentData[$rowData['continent']], $tempArray);
         endforeach;
 

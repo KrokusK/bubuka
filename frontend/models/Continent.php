@@ -280,21 +280,27 @@ class Continent extends \yii\db\ActiveRecord
     private function setOrderFields($query, $params = [])
     {
         //  parameters
-        $ilikeParams = [
+        $orderParams = [
             'sortNameContinent' => 'continent.name',
+            'sortNameCountry' => 'country.name',
             'sortNameCity' => 'city.name',
             'sortPopulationCity' => 'city.population'
         ];
+        $orderTrend = [
+            'asc' => 'SORT_ASC',
+            'desc' => 'SORT_DESC'
+        ];
 
-        foreach ($this->assocContinent as $name => $value) {
-            if (array_key_exists($value, $params) && $this->hasAttribute($name)) {
-                $this->$name = $params[$value];
-                if ($this->validate($name)) {
-                    if (in_array($name, $ilikeParams)) {
-                        $query->andWhere(['ilike', 'continent.'.$name, $params[$value]]);
-                    } else {
-                        $query->andWhere(['continent.'.$name => $params[$value]]);
-                    }
+        foreach ($this->assocOrderBy as $name => $value) {
+            if (array_key_exists($value, $params)) {
+                if (array_key_exists($params[$value], $orderParams)) {
+                    $orderKey = $orderParams[$params[$value]];
+                }
+                if (array_key_exists($params[$value], $orderTrend)) {
+                    $orderValue = $orderTrend[$params[$value]];
+                }
+                if (!empty() && !empty()) {
+                    $query->orderBy([$orderKey => $orderValue]);
                 }
             }
         }

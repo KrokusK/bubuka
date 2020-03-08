@@ -64,6 +64,20 @@ $this->title = 'My Yii Application';
                 <h3><?php echo Html::encode("{$continentKey}"); ?></h3>
 
                 <table style="border-width: thin">
+                    <tr>
+                        <td>
+                            №
+                        </td>
+                        <td>
+                            Город
+                        </td>
+                        <td>
+                            Страна
+                        </td>
+                        <td>
+                            Численность
+                        </td>
+                    </tr>
                     <?php
                     $i = 0;
                     foreach ($continentVal as $row):

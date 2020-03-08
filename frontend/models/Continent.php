@@ -139,7 +139,7 @@ class Continent extends \yii\db\ActiveRecord
 
 
         $queryContinent = Continent::find()
-            ->select(['continent' => 'continent.name', 'country' => 'country.name','city' => 'city.name', 'city' => 'population.population'])
+            ->select(['continent' => 'continent.name', 'country' => 'country.name','city' => 'city.name', 'population' => 'city.population'])
             //->select(['continent.*','country.*','city.*'])
             //->select(['country.*'])
 

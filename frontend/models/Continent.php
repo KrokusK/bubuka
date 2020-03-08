@@ -96,7 +96,7 @@ class Continent extends \yii\db\ActiveRecord
 
         //$sql = 'SELECT * FROM customer WHERE status=:status';
         //$customers = Customer::findBySql($sql, [':status' => Customer::STATUS_INACTIVE])->all();
-        $sql = "select continent.name as continent, country.name as country, city.name as city, city.poulation as population from continent left join country on (country.continent_id = continent.id) left join city on (city.country_id = country.id) where country.name ilike '%инд%' group by continent.id, country.id, city.id, city.population order by city.population DESC";
+        $sql = "select continent.name as continent, country.name as country, city.name as city, city.population as population from continent left join country on (country.continent_id = continent.id) left join city on (city.country_id = country.id) where country.name ilike '%инд%' group by continent.id, country.id, city.id, city.population order by city.population DESC";
 
         $queryContinent = Continent::findBySql($sql);
         $dataContinent = $queryContinent

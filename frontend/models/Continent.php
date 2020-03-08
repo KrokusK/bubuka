@@ -343,7 +343,12 @@ class Continent extends \yii\db\ActiveRecord
         }
     }
 
-    private function getArrayWithContinentIndex($arrayData) {
+    /**
+     *  Create a array with continent index
+     *
+     *  @arrayData array with input data
+     */
+    public function getArrayWithContinentIndex($arrayData) {
         $arrayContinentData = [];
 
         foreach ($arrayData as $rowData):

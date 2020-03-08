@@ -114,7 +114,7 @@ class Continent extends \yii\db\ActiveRecord
         $this->setCountryFilter($queryContinent, $params);
         $this->setCityFilter($queryContinent, $params);
         // Add order params
-        $this->setOrderFields($queryContinent, $params);
+        $tempVal = $this->setOrderFields($queryContinent, $params);
         // Add pagination params
         $this->setPaginationParams($queryContinent, $params);
         // get data
@@ -190,7 +190,8 @@ class Continent extends \yii\db\ActiveRecord
         */
 
         // return data
-        return $dataContinent;
+        //return $dataContinent;
+        return $tempVal;
     }
 
     /**
@@ -306,6 +307,8 @@ class Continent extends \yii\db\ActiveRecord
                 }
             }
         }
+
+        return $orderKey." => ".$orderValue;
     }
 
     /**

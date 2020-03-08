@@ -114,7 +114,8 @@ class Continent extends \yii\db\ActiveRecord
         $this->setCountryFilter($queryContinent, $params);
         $this->setCityFilter($queryContinent, $params);
         // Add order params
-        $tempVal = $this->setOrderFields($queryContinent, $params);
+        //$tempVal = $this->setOrderFields($queryContinent, $params);
+        $this->setOrderFields($queryContinent, $params);
         // Add pagination params
         $this->setPaginationParams($queryContinent, $params);
         // get data
@@ -190,8 +191,8 @@ class Continent extends \yii\db\ActiveRecord
         */
 
         // return data
-        //return $dataContinent;
-        return $tempVal;
+        return $dataContinent;
+        //return $tempVal;
     }
 
     /**
@@ -290,8 +291,8 @@ class Continent extends \yii\db\ActiveRecord
             'populationCity' => 'city.population'
         ];
         $orderTrend = [
-            'asc' => 'SORT_ASC',
-            'desc' => 'SORT_DESC'
+            'asc' => SORT_ASC,
+            'desc' => SORT_DESC
         ];
 
         foreach ($this->assocOrderBy as $name => $value) {
@@ -308,7 +309,7 @@ class Continent extends \yii\db\ActiveRecord
             }
         }
 
-        return $orderKey." => ".$orderValue;
+        //return $orderKey." => ".$orderValue;
     }
 
     /**

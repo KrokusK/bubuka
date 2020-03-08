@@ -106,13 +106,15 @@ class Continent extends \yii\db\ActiveRecord
             ->leftJoin('city','city.country_id = country.id')
             //->groupBy(['continent.id', 'country.id', 'city.id'])
             //->groupBy(['continent.id', 'city.population'])
-            ->orderBy(['city.population' => SORT_DESC]);
+            //->orderBy(['city.population' => SORT_DESC]);
             //->orderBy(['city.population' => SORT_ASC]);
             //->orderBy(['continent.name' => SORT_ASC, 'country.name' => SORT_ASC, 'city.name' => SORT_ASC]);
         // Add data filter
         $this->setContinentFilter($queryContinent, $params);
         $this->setCountryFilter($queryContinent, $params);
         $this->setCityFilter($queryContinent, $params);
+        // Add order params
+        $this->setOrderFields($queryContinent, $params);
         // Add pagination params
         $this->setPaginationParams($queryContinent, $params);
         // get data
@@ -299,7 +301,7 @@ class Continent extends \yii\db\ActiveRecord
                 if (array_key_exists($params[$value], $orderTrend)) {
                     $orderValue = $orderTrend[$params[$value]];
                 }
-                if (!empty() && !empty()) {
+                if (!empty($orderKey) && !empty($orderValue)) {
                     $query->orderBy([$orderKey => $orderValue]);
                 }
             }

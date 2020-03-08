@@ -94,6 +94,35 @@ class Continent extends \yii\db\ActiveRecord
             order by city.population DESC
          */
 
+        $queryContinent = Continent::find()
+            ->select(['continent' => 'continent.name', 'country' => 'country.name','city' => 'city.name', 'population' => 'city.population'])
+            //->select(['continent.*','country.*','city.*'])
+            //->select(['country.*'])
+            ->leftJoin('country','country.continent_id = continent.id')
+            ->leftJoin('city','city.country_id = country.id')
+            ->groupBy(['continent.id', 'country.id'])
+            //->groupBy(['continent.id', 'city.population'])
+            ->orderBy(['city.population' => SORT_DESC]);
+            //->orderBy(['city.population' => SORT_ASC]);
+            //->orderBy(['continent.name' => SORT_ASC, 'country.name' => SORT_ASC, 'city.name' => SORT_ASC]);
+        // Add data filter
+        $this->setContinentFilter($queryContinent, $params);
+        $this->setCountryFilter($queryContinent, $params);
+        $this->setCityFilter($queryContinent, $params);
+        // Add pagination params
+        $this->setPaginationParams($queryContinent, $params);
+        // get data
+        $dataContinent = $queryContinent
+            //->with([
+            //    //'countries',
+            //    'countries' => function ($queryContinent) {
+            //        $queryContinent->andWhere(['name' => $params['nameCountry']]);
+            //    },
+            //    'countries.cities'
+            //])
+            ->asArray()
+            ->all();
+
         /*
         //$sql = 'SELECT * FROM customer WHERE status=:status';
         //$customers = Customer::findBySql($sql, [':status' => Customer::STATUS_INACTIVE])->all();
@@ -136,40 +165,6 @@ class Continent extends \yii\db\ActiveRecord
             ->asArray()
             ->all();
         */
-
-
-        $queryContinent = Continent::find()
-            ->select(['continent' => 'continent.name', 'country' => 'country.name','city' => 'city.name', 'population' => 'city.population'])
-            //->select(['continent.*','country.*','city.*'])
-            //->select(['country.*'])
-
-            ->leftJoin('country','country.continent_id = continent.id')
-            ->leftJoin('city','city.country_id = country.id')
-            //->groupBy(['continent.id', 'country.name', 'city.name', 'city.population'])
-            //->groupBy(['continent.id', 'city.population'])
-            ->orderBy(['city.population' => SORT_DESC]);
-            //->orderBy(['city.population' => SORT_ASC]);
-            //->orderBy(['continent.name' => SORT_ASC, 'country.name' => SORT_ASC, 'city.name' => SORT_ASC]);
-        // Add data filter
-        $this->setContinentFilter($queryContinent, $params);
-        $this->setCountryFilter($queryContinent, $params);
-        $this->setCityFilter($queryContinent, $params);
-        // Add pagination params
-        $this->setPaginationParams($queryContinent, $params);
-        // get data
-        $dataContinent = $queryContinent
-
-            //->with([
-            //    //'countries',
-            //    'countries' => function ($queryContinent) {
-            //        $queryContinent->andWhere(['name' => $params['nameCountry']]);
-            //    },
-            //    'countries.cities'
-            //])
-
-            ->asArray()
-            ->all();
-
 
         /*
         $queryContinent = Continent::find()

@@ -103,6 +103,7 @@ $this->title = 'My Yii Application';
                         <?php echo Html::encode("{$row["population"]}"); ?>
                     </div>
                 <?php endforeach; ?>
+                <br><br>
             <?php endforeach; ?>
         </div>
 

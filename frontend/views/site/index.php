@@ -61,22 +61,20 @@ $this->title = 'My Yii Application';
             <?php echo var_dump($continents); ?>
 
             <div class="col-xs-6 col-md-3">
-                <a href="#" class="thumbnail">
-                    №
-                </a>
+                №
             </div>
             <div class="col-xs-6 col-md-3">
-                <a href="#" class="thumbnail">
+                <a class="thumbnail">
                     Город
                 </a>
             </div>
             <div class="col-xs-6 col-md-3">
-                <a href="#" class="thumbnail">
+                <a class="thumbnail">
                     Страна
                 </a>
             </div>
             <div class="col-xs-6 col-md-3">
-                <a href="#" class="thumbnail">
+                <a class="thumbnail">
                     Численность
                 </a>
             </div>

@@ -83,43 +83,25 @@ $this->title = 'My Yii Application';
                         Численность
                     </a>
                 </div>
-
-                <table style="border-width: thin">
-                    <tr>
-                        <td>
-                            №
-                        </td>
-                        <td>
-                            Город
-                        </td>
-                        <td>
-                            Страна
-                        </td>
-                        <td>
-                            Численность
-                        </td>
-                    </tr>
-                    <?php
-                    $i = 0;
-                    foreach ($continentVal as $row):
-                        $i++;
+            
+                <?php
+                $i = 0;
+                foreach ($continentVal as $row):
+                    $i++;
                     ?>
-                        <tr>
-                            <td>
-                                <?php echo Html::encode("{$i}"); ?>
-                            </td>
-                            <td>
-                                <?php echo Html::encode("{$row["city"]}"); ?>
-                            </td>
-                            <td>
-                                <?php echo Html::encode("{$row["country"]}"); ?>
-                            </td>
-                            <td>
-                                <?php echo Html::encode("{$row["population"]}"); ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </table>
+                    <div class="col-xs-6 col-md-3">
+                        <?php echo Html::encode("{$i}"); ?>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <?php echo Html::encode("{$row["city"]}"); ?>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <?php echo Html::encode("{$row["country"]}"); ?>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <?php echo Html::encode("{$row["population"]}"); ?>
+                    </div>
+                <?php endforeach; ?>
             <?php endforeach; ?>
         </div>
 

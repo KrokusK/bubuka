@@ -25,19 +25,19 @@ $this->title = 'My Yii Application';
                         <ul class="nav navbar-nav navbar-left">
                             <li>
                                 <label class="control-label" for="ad-category">Континент</label>
-                                <input type="text" class="form-control" placeholder="Search" id="continent-search" value="<?php echo $getParams['nameContinent']; ?>">
+                                <input type="text" class="form-control" placeholder="Search" id="continent-search" value="<?php echo (!empty($getParams['nameContinent'])) ? $getParams['nameContinent'] : null; ?>">
                             </li>
                             <li>
                                 <label class="control-label" for="ad-category">Страна</label>
-                                <input type="text" class="form-control" placeholder="Search" id="country-search" value="<?php echo $getParams['nameCountry']; ?>">
+                                <input type="text" class="form-control" placeholder="Search" id="country-search" value="<?php echo (!empty($getParams['nameCountry'])) ? $getParams['nameCountry'] : null; ?>">
                             </li>
                             <li>
                                 <label class="control-label" for="ad-category">Город</label>
-                                <input type="text" class="form-control" placeholder="Search" id="city-search" value="<?php echo $getParams['nameCity']; ?>">
+                                <input type="text" class="form-control" placeholder="Search" id="city-search" value="<?php echo (!empty($getParams['nameCity'])) ? $getParams['nameCity'] : null; ?>">
                             </li>
                             <li>
                                 <label class="control-label" for="ad-category">Численность</label>
-                                <input type="text" class="form-control" placeholder="Search" id="population-search" value="<?php echo $getParams['population']; ?>">
+                                <input type="text" class="form-control" placeholder="Search" id="population-search" value="<?php echo (!empty($getParams['population'])) ? $getParams['population'] : null; ?>">
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">

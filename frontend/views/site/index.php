@@ -61,7 +61,7 @@ $this->title = 'My Yii Application';
             <?php echo var_dump($continents); ?>
 
             <?php foreach ($continents as $continentKey => $continentVal): ?>
-                <br><br>
+                <p></p>
                 <h3><?php echo Html::encode("{$continentKey}"); ?></h3>
 
                 <div class="col-xs-6 col-md-3">
@@ -103,7 +103,7 @@ $this->title = 'My Yii Application';
                         <?php echo Html::encode("{$row["population"]}"); ?>
                     </div>
                 <?php endforeach; ?>
-                <br><br>
+                <p></p>
             <?php endforeach; ?>
         </div>
 

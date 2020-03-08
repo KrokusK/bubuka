@@ -99,7 +99,7 @@ class Continent extends \yii\db\ActiveRecord
         $sql = "select * from continent".
             "left join country on (country.continent_id = continent.id)".
             "left join city on (city.country_id = country.id)".
-            "where country.name ilike \'%инд%\'".
+            "where country.name ilike '%инд%'".
             "group by continent.id, country.id, city.id, city.population".
             "order by city.population DESC";
 
@@ -107,7 +107,7 @@ class Continent extends \yii\db\ActiveRecord
         $dataContinent = $queryContinent
             ->asArray()
             ->all();
-        
+
         /*
         $queryContinent = City::find()
             //->select(['continent.name','country.name','city.name','city.population'])

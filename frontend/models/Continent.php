@@ -353,9 +353,9 @@ class Continent extends \yii\db\ActiveRecord
 
         foreach ($arrayData as $rowData):
             $tempArray = [
-                'country' => $arrayData['country'],
-                'city' => $arrayData['city'],
-                'population' => $arrayData['population']
+                'country' => $rowData['country'],
+                'city' => $rowData['city'],
+                'population' => $rowData['population']
             ];
             array_push($arrayContinentData['continent'], $tempArray);
         endforeach;

@@ -60,7 +60,32 @@ $this->title = 'My Yii Application';
         <div class="row">
             <?php echo var_dump($continents); ?>
 
+            <?php foreach ($continents as $continentKey => $continentVal): ?>
+                <h3><?php echo Html::encode("{$continentKey}"); ?></h3>
 
+                <table style="border-width: thin">
+                    <?php
+                    $i = 0;
+                    foreach ($continentVal as $row):
+                        $i++;
+                    ?>
+                        <tr>
+                            <td>
+                                <?php echo Html::encode("{$i}"); ?>
+                            </td>
+                            <td>
+                                <?php echo Html::encode("{$row["city"]}"); ?>
+                            </td>
+                            <td>
+                                <?php echo Html::encode("{$row["country"]}"); ?>
+                            </td>
+                            <td>
+                                <?php echo Html::encode("{$row["population"]}"); ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            <?php endforeach; ?>
         </div>
 
     </div>

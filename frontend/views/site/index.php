@@ -79,7 +79,7 @@ $this->title = 'My Yii Application';
                 </a>
             </div>
 
-            <p></p>
+            <h1></h1>
 
             <?php foreach ($continents as $continentKey => $continentVal): ?>
                 <h3><?php echo Html::encode("{$continentKey}"); ?></h3>

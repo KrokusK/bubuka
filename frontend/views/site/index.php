@@ -64,20 +64,22 @@ $this->title = 'My Yii Application';
                 №
             </div>
             <div class="col-xs-6 col-md-3">
-                <a class="thumbnail">
+                <a class="thumbnail" id="order-city">
                     Город
                 </a>
             </div>
             <div class="col-xs-6 col-md-3">
-                <a class="thumbnail">
+                <a class="thumbnail" id="order-country">
                     Страна
                 </a>
             </div>
             <div class="col-xs-6 col-md-3">
-                <a class="thumbnail">
+                <a class="thumbnail" id="order-population">
                     Численность
                 </a>
             </div>
+
+            <p></p>
 
             <?php foreach ($continents as $continentKey => $continentVal): ?>
                 <h3><?php echo Html::encode("{$continentKey}"); ?></h3>

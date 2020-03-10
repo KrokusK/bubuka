@@ -135,6 +135,39 @@ $this->title = 'My Yii Application';
             
            this.form.submit();
         });
+        $("#order-city").on('click', function (event) { 
+           var action = $('#form-search').attr('action'); 
+           action = action + '?nameContinent=' + $("#continent-search").val(); 
+           action = action + '&nameCountry=' + $("#country-search").val(); 
+           action = action + '&nameCity=' + $("#city-search").val();
+           action = action + '&population=' + $("#population-search").val();
+           //alert(action);
+           $('#form-search').attr('action', action);
+            
+           this.form.submit();
+        });
+        $("#order-country").on('click', function (event) { 
+           var action = $('#form-search').attr('action'); 
+           action = action + '?nameContinent=' + $("#continent-search").val(); 
+           action = action + '&nameCountry=' + $("#country-search").val(); 
+           action = action + '&nameCity=' + $("#city-search").val();
+           action = action + '&population=' + $("#population-search").val();
+           //alert(action);
+           $('#form-search').attr('action', action);
+            
+           this.form.submit();
+        });
+        $("#order-population").on('click', function (event) { 
+           var action = $('#form-search').attr('action'); 
+           action = action + '?nameContinent=' + $("#continent-search").val(); 
+           action = action + '&nameCountry=' + $("#country-search").val(); 
+           action = action + '&nameCity=' + $("#city-search").val();
+           action = action + '&population=' + $("#population-search").val();
+           //alert(action);
+           $('#form-search').attr('action', action);
+            
+           this.form.submit();
+        });
     });       
 
 JS;

@@ -173,8 +173,7 @@ $this->title = 'My Yii Application';
            //$("#order-population").attr('href', action);
             
            //this.click();
-           window.open(action);
-           return false;
+           window.location = action;
         });
     });       
 

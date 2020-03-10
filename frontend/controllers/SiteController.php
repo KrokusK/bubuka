@@ -76,12 +76,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
         if (Yii::$app->user->isGuest) {
-            $model = new LoginForm();
-            $model->password = '';
-
-            return $this->render('login', [
-                'model' => $model,
-            ]);
+            Yii::$app->response->redirect(Url::to('/site/login'));
         }
 
         // Get request params (GET method)

@@ -144,7 +144,7 @@ $this->title = 'My Yii Application';
            //alert(action);
            $('#form-search').attr('action', action);
             
-           this.form.submit();
+           $("#btn-search").form.submit();
         });
         $("#order-country").click(function (event) { 
            var action = $('#form-search').attr('action'); 
@@ -155,7 +155,7 @@ $this->title = 'My Yii Application';
            //alert(action);
            $('#form-search').attr('action', action);
             
-           this.form.submit();
+           $("#btn-search").form.submit();
         });
         $("#order-population").click(function (event) { 
            var action = $('#form-search').attr('action'); 
@@ -166,7 +166,7 @@ $this->title = 'My Yii Application';
            //alert(action);
            $('#form-search').attr('action', action);
             
-           this.form.submit();
+           $("#btn-search").form.submit();
         });
     });       
 

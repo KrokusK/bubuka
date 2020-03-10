@@ -125,7 +125,8 @@ $this->title = 'My Yii Application';
     $script = <<< JS
    $(document).ready(function () {        
         $("#btn-search").on('click', function (event) { 
-           var action = $('#form-search').attr('action'); 
+           //var action = $('#form-search').attr('action'); 
+           var action = window.location.protocol + '//' + window.location.hostname + window.location.pathname;
            action = action + '?nameContinent=' + $("#continent-search").val(); 
            action = action + '&nameCountry=' + $("#country-search").val(); 
            action = action + '&nameCity=' + $("#city-search").val();

@@ -301,13 +301,13 @@ class Continent extends \yii\db\ActiveRecord
                 if (array_key_exists($params[$value], $orderTrend)) {
                     $orderValue = $orderTrend[$params[$value]];
                 }
-                if (!empty($orderKey) && !empty($orderValue)) {
-                    $query->orderBy([$orderKey => $orderValue]);
-                }
+                //if (!empty($orderKey) && !empty($orderValue)) {
+                //    $query->orderBy([$orderKey => $orderValue]);
+                //}
             }
         }
 
-        return $orderKey." - ".$orderValue;
+        //return $orderKey." - ".$orderValue;
     }
 
     /**

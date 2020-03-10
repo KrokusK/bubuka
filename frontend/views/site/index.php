@@ -58,7 +58,7 @@ $this->title = 'My Yii Application';
             </nav>
         </div>
         <div class="row">
-            <?php echo var_dump($continents); ?>
+            <?php //echo var_dump($continents); ?>
         </div>
         <div class="row">
             <div class="col-xs-6 col-md-3">
@@ -159,29 +159,6 @@ $this->title = 'My Yii Application';
            action = action + '&nameCountry=' + $("#country-search").val(); 
            action = action + '&nameCity=' + $("#city-search").val();
            action = action + '&population=' + $("#population-search").val();
-           //alert(action);
-           window.location = action;
-        });
-        $("#order-country").click(function (event) { 
-           event.preventDefault();
-           
-           var action = window.location.protocol + '//' + window.location.hostname + window.location.pathname;
-           action = action + '?nameContinent=' + $("#continent-search").val(); 
-           action = action + '&nameCountry=' + $("#country-search").val(); 
-           action = action + '&nameCity=' + $("#city-search").val();
-           action = action + '&population=' + $("#population-search").val();
-           //alert(action);
-           window.location = action;
-        });
-        $("#order-population").click(function (event) { 
-           event.preventDefault();
-           
-           var action = window.location.protocol + '//' + window.location.hostname + window.location.pathname;
-           action = action + '?nameContinent=' + $("#continent-search").val(); 
-           action = action + '&nameCountry=' + $("#country-search").val(); 
-           action = action + '&nameCity=' + $("#city-search").val();
-           action = action + '&population=' + $("#population-search").val();
-           
            var sort_field = getParameterByName('sortField');
            var sort_trend = getParameterByName('sortTrend');
            if (!isEmpty(sort_field)) {
@@ -196,7 +173,59 @@ $this->title = 'My Yii Application';
                
                action = action + '&sortField=' + sort_field;
                action = action + '&sortTrend=' + sort_trend;
-               alert(action);        
+               //alert(action);        
+           }
+           window.location = action;
+        });
+        $("#order-country").click(function (event) { 
+           event.preventDefault();
+           
+           var action = window.location.protocol + '//' + window.location.hostname + window.location.pathname;
+           action = action + '?nameContinent=' + $("#continent-search").val(); 
+           action = action + '&nameCountry=' + $("#country-search").val(); 
+           action = action + '&nameCity=' + $("#city-search").val();
+           action = action + '&population=' + $("#population-search").val();
+           var sort_field = getParameterByName('sortField');
+           var sort_trend = getParameterByName('sortTrend');
+           if (!isEmpty(sort_field)) {
+               switch (sort_trend) {
+                  case 'asc':
+                    sort_trend = 'desc';
+                    break;
+                  case 'desc':
+                  default:
+                    sort_trend = 'asc';
+                }               
+               
+               action = action + '&sortField=' + sort_field;
+               action = action + '&sortTrend=' + sort_trend;
+               //alert(action);        
+           }
+           window.location = action;
+        });
+        $("#order-population").click(function (event) { 
+           event.preventDefault();
+           
+           var action = window.location.protocol + '//' + window.location.hostname + window.location.pathname;
+           action = action + '?nameContinent=' + $("#continent-search").val(); 
+           action = action + '&nameCountry=' + $("#country-search").val(); 
+           action = action + '&nameCity=' + $("#city-search").val();
+           action = action + '&population=' + $("#population-search").val();           
+           var sort_field = getParameterByName('sortField');
+           var sort_trend = getParameterByName('sortTrend');
+           if (!isEmpty(sort_field)) {
+               switch (sort_trend) {
+                  case 'asc':
+                    sort_trend = 'desc';
+                    break;
+                  case 'desc':
+                  default:
+                    sort_trend = 'asc';
+                }               
+               
+               action = action + '&sortField=' + sort_field;
+               action = action + '&sortTrend=' + sort_trend;
+               //alert(action);        
            }
            window.location = action;
         });

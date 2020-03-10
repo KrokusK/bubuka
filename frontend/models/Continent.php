@@ -306,8 +306,6 @@ class Continent extends \yii\db\ActiveRecord
         if (!empty($orderKey) && !empty($orderValue)) {
             $query->orderBy([$orderKey => $orderValue]);
         }
-
-        //return $orderKey." - ".$orderValue;
     }
 
     /**

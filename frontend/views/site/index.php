@@ -168,9 +168,9 @@ $this->title = 'My Yii Application';
            action = action + '&population=' + $("#population-search").val();
            
            //this expression is to get the query strings
-           var reg = new RegExp( '[?&]' + sort_field + '=([^&#]*)', 'i' );
-           var queryString = reg.exec(window.location.search);
-           alert(queryString);
+           //var reg = new RegExp( '[?&]' + sort_field + '=([^&#]*)', 'i' );
+           //var queryString = reg.exec(window.location.search);
+           alert(window.location.search);
            window.location = action;
         });
     });       

@@ -184,11 +184,20 @@ $this->title = 'My Yii Application';
            
            var sort_field = getParameterByName('sort_field');
            var sort_trend = getParameterByName('sort_trend');
-           if (!isEmpty(sort_field) && !isEmpty(sort_trend)) {
+           if (!isEmpty(sort_field)) {
+               switch (sort_trend) {
+                  case 'asc':
+                    sort_trend = 'desc';
+                    break;
+                  case 'desc':
+                  default:
+                    sort_trend = 'asc';
+                }               
+               
                action = action + '&sort_field=' + sort_field;
                action = action + '&sort_trend=' + sort_trend;
-               alert(action);
-           }           
+               alert(action);        
+           }
            window.location = action;
         });
     });       

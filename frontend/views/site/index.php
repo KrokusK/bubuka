@@ -161,9 +161,7 @@ $this->title = 'My Yii Application';
            action = action + '&population=' + $("#population-search").val();
            var sort_field = getParameterByName('sortField');
            var sort_trend = getParameterByName('sortTrend');
-           if (isEmpty(sort_field)) {
-               sort_field = 'nameCity';
-           }
+           sort_field = 'nameCity';
            switch (sort_trend) {
                case 'asc':
                    sort_trend = 'desc';
@@ -187,9 +185,7 @@ $this->title = 'My Yii Application';
            action = action + '&population=' + $("#population-search").val();
            var sort_field = getParameterByName('sortField');
            var sort_trend = getParameterByName('sortTrend');
-           if (isEmpty(sort_field)) {
-               sort_field = 'nameCountry';
-           }
+           sort_field = 'nameCountry';
            switch (sort_trend) {
                case 'asc':
                    sort_trend = 'desc';
@@ -213,9 +209,7 @@ $this->title = 'My Yii Application';
            action = action + '&population=' + $("#population-search").val();           
            var sort_field = getParameterByName('sortField');
            var sort_trend = getParameterByName('sortTrend');
-           if (isEmpty(sort_field)) {
-               sort_field = 'populationCity';
-           }
+           sort_field = 'populationCity';
            switch (sort_trend) {
                case 'asc':
                    sort_trend = 'desc';

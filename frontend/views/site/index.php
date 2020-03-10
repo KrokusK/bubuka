@@ -136,6 +136,17 @@ $this->title = 'My Yii Application';
             
            this.form.submit();
         });
+        
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+        
         $("#order-city").click(function (event) { 
            event.preventDefault();
            
@@ -167,10 +178,9 @@ $this->title = 'My Yii Application';
            action = action + '&nameCity=' + $("#city-search").val();
            action = action + '&population=' + $("#population-search").val();
            
-           //this expression is to get the query strings
-           //var reg = new RegExp( '[?&]' + sort_field + '=([^&#]*)', 'i' );
-           //var queryString = reg.exec(window.location.search);
-           alert(window.location.search);
+           var sort_field = getParameterByName('sort_field');
+           var sort_trend = getParameterByName('sort_trend');
+           alert(sort_field + " " + sort_trend);
            window.location = action;
         });
     });       

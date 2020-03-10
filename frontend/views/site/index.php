@@ -65,17 +65,17 @@ $this->title = 'My Yii Application';
                 №
             </div>
             <div class="col-xs-6 col-md-3">
-                <a class="thumbnail" id="order-city">
+                <a href="#" class="thumbnail" id="order-city">
                     Город
                 </a>
             </div>
             <div class="col-xs-6 col-md-3">
-                <a class="thumbnail" id="order-country">
+                <a href="#" class="thumbnail" id="order-country">
                     Страна
                 </a>
             </div>
             <div class="col-xs-6 col-md-3">
-                <a class="thumbnail" id="order-population">
+                <a href="#" class="thumbnail" id="order-population">
                     Численность
                 </a>
             </div>

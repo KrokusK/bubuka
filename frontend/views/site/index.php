@@ -158,21 +158,14 @@ $this->title = 'My Yii Application';
            $("#btn-search").form.submit();
         });
         $("#order-population").click(function (event) { 
-           //event.preventDefault();
-           //var href = $(this).attr("href");
-                
-           //var action = $('#form-search').attr('action');
+           event.preventDefault();
+           
            var action = window.location.protocol + '//' + window.location.hostname + window.location.pathname;
            action = action + '?nameContinent=' + $("#continent-search").val(); 
            action = action + '&nameCountry=' + $("#country-search").val(); 
            action = action + '&nameCity=' + $("#city-search").val();
            action = action + '&population=' + $("#population-search").val();
            alert(action);
-           //$('#form-search').attr('action', action);
-           
-           //$("#order-population").attr('href', action);
-            
-           //this.click();
            window.location = action;
         });
     });       

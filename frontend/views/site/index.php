@@ -59,7 +59,8 @@ $this->title = 'My Yii Application';
         </div>
         <div class="row">
             <?php echo var_dump($continents); ?>
-
+        </div>
+        <div class="row">
             <div class="col-xs-6 col-md-3">
                 №
             </div>
@@ -118,7 +119,6 @@ $this->title = 'My Yii Application';
                 </div>
             <?php endforeach; ?>
         </div>
-
     </div>
 
     <?php

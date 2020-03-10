@@ -161,20 +161,20 @@ $this->title = 'My Yii Application';
            action = action + '&population=' + $("#population-search").val();
            var sort_field = getParameterByName('sortField');
            var sort_trend = getParameterByName('sortTrend');
-           if (!isEmpty(sort_field)) {
-               switch (sort_trend) {
-                  case 'asc':
-                    sort_trend = 'desc';
-                    break;
-                  case 'desc':
-                  default:
-                    sort_trend = 'asc';
-                }               
-               
-               action = action + '&sortField=' + sort_field;
-               action = action + '&sortTrend=' + sort_trend;
-               //alert(action);        
+           if (isEmpty(sort_field)) {
+               sort_field = 'nameCity';
            }
+           switch (sort_trend) {
+               case 'asc':
+                   sort_trend = 'desc';
+                   break;
+               case 'desc':
+               default:
+                   sort_trend = 'asc';
+           }               
+           action = action + '&sortField=' + sort_field;
+           action = action + '&sortTrend=' + sort_trend;
+           //alert(action);            
            window.location = action;
         });
         $("#order-country").click(function (event) { 
@@ -187,20 +187,20 @@ $this->title = 'My Yii Application';
            action = action + '&population=' + $("#population-search").val();
            var sort_field = getParameterByName('sortField');
            var sort_trend = getParameterByName('sortTrend');
-           if (!isEmpty(sort_field)) {
-               switch (sort_trend) {
-                  case 'asc':
-                    sort_trend = 'desc';
-                    break;
-                  case 'desc':
-                  default:
-                    sort_trend = 'asc';
-                }               
-               
-               action = action + '&sortField=' + sort_field;
-               action = action + '&sortTrend=' + sort_trend;
-               //alert(action);        
+           if (isEmpty(sort_field)) {
+               sort_field = 'nameCountry';
            }
+           switch (sort_trend) {
+               case 'asc':
+                   sort_trend = 'desc';
+                   break;
+               case 'desc':
+               default:
+                   sort_trend = 'asc';
+           }               
+           action = action + '&sortField=' + sort_field;
+           action = action + '&sortTrend=' + sort_trend;
+           //alert(action);
            window.location = action;
         });
         $("#order-population").click(function (event) { 
@@ -213,20 +213,20 @@ $this->title = 'My Yii Application';
            action = action + '&population=' + $("#population-search").val();           
            var sort_field = getParameterByName('sortField');
            var sort_trend = getParameterByName('sortTrend');
-           if (!isEmpty(sort_field)) {
-               switch (sort_trend) {
-                  case 'asc':
-                    sort_trend = 'desc';
-                    break;
-                  case 'desc':
-                  default:
-                    sort_trend = 'asc';
-                }               
-               
-               action = action + '&sortField=' + sort_field;
-               action = action + '&sortTrend=' + sort_trend;
-               //alert(action);        
+           if (isEmpty(sort_field)) {
+               sort_field = 'populationCity';
            }
+           switch (sort_trend) {
+               case 'asc':
+                   sort_trend = 'desc';
+                   break;
+               case 'desc':
+               default:
+                   sort_trend = 'asc';
+           }               
+           action = action + '&sortField=' + sort_field;
+           action = action + '&sortTrend=' + sort_trend;
+           //alert(action);
            window.location = action;
         });
     });       

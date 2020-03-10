@@ -34,8 +34,8 @@ class Continent extends \yii\db\ActiveRecord
         'population' => 'population'
     ];
     protected $assocOrderBy = [
-        'sortField' => 'sortField',
-        'sortTrend' => 'sortTrend',
+        'sortField' => 'sort_field',
+        'sortTrend' => 'sort_trend',
     ];
     protected $assocPagination = [
         'limitRec' => 'limit',

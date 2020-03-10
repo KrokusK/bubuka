@@ -147,6 +147,10 @@ $this->title = 'My Yii Application';
             return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
         
+        function isEmpty(str) {
+            return (!str || 0 === str.length);
+        }
+        
         $("#order-city").click(function (event) { 
            event.preventDefault();
            
@@ -180,7 +184,11 @@ $this->title = 'My Yii Application';
            
            var sort_field = getParameterByName('sort_field');
            var sort_trend = getParameterByName('sort_trend');
-           alert(sort_field + " " + sort_trend);
+           if (!isEmpty(sort_field) && !isEmpty(sort_trend)) {
+               action = action + '&sort_field=' + sort_field;
+               action = action + '&sort_trend=' + sort_trend;
+               alert(action);
+           }           
            window.location = action;
         });
     });       

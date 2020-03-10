@@ -9,7 +9,6 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use yii\helpers\ArrayHelper;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
@@ -77,7 +76,8 @@ class SiteController extends Controller
     public function actionIndex()
     {
         if (Yii::$app->user->isGuest) {
-            Yii::$app->response->redirect(Url::to('/site/login'));
+            //Yii::$app->response->redirect(Url::to('/site/login'));
+            return $this->render('login');
         }
 
         // Get request params (GET method)

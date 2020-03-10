@@ -162,7 +162,7 @@ $this->title = 'My Yii Application';
            //var href = $(this).attr("href");
                 
            //var action = $('#form-search').attr('action');
-           var action = window.location.protocol + window.location.hostname + window.location.pathname;
+           var action = window.location.protocol + '//' + window.location.hostname + window.location.pathname;
            action = action + '?nameContinent=' + $("#continent-search").val(); 
            action = action + '&nameCountry=' + $("#country-search").val(); 
            action = action + '&nameCity=' + $("#city-search").val();

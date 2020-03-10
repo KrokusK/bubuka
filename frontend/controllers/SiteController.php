@@ -77,7 +77,7 @@ class SiteController extends Controller
     {
         if (Yii::$app->user->isGuest) {
             //Yii::$app->response->redirect(Url::to('/site/login'));
-            return $this->render('login');
+            $this->redirect('/site/login')->send();
         }
 
         // Get request params (GET method)

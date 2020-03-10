@@ -135,7 +135,7 @@ $this->title = 'My Yii Application';
             
            this.form.submit();
         });
-        $("#order-city").on('click', function (event) { 
+        $("#order-city").click(function (event) { 
            var action = $('#form-search').attr('action'); 
            action = action + '?nameContinent=' + $("#continent-search").val(); 
            action = action + '&nameCountry=' + $("#country-search").val(); 
@@ -146,7 +146,7 @@ $this->title = 'My Yii Application';
             
            this.form.submit();
         });
-        $("#order-country").on('click', function (event) { 
+        $("#order-country").click(function (event) { 
            var action = $('#form-search').attr('action'); 
            action = action + '?nameContinent=' + $("#continent-search").val(); 
            action = action + '&nameCountry=' + $("#country-search").val(); 
@@ -157,7 +157,7 @@ $this->title = 'My Yii Application';
             
            this.form.submit();
         });
-        $("#order-population").on('click', function (event) { 
+        $("#order-population").click(function (event) { 
            var action = $('#form-search').attr('action'); 
            action = action + '?nameContinent=' + $("#continent-search").val(); 
            action = action + '&nameCountry=' + $("#country-search").val(); 

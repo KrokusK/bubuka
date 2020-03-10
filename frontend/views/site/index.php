@@ -158,7 +158,7 @@ $this->title = 'My Yii Application';
            $("#btn-search").form.submit();
         });
         $("#order-population").click(function (event) { 
-           e.preventDefault();
+           //event.preventDefault();
            //var href = $(this).attr("href");
                 
            //var action = $('#form-search').attr('action');

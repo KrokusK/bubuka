@@ -75,6 +75,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest) {
+            return $this->render('login');
+        }
+
         // Get request params (GET method)
         $getParams = Yii::$app->getRequest()->get();
 

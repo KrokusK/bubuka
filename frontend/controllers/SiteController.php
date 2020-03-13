@@ -81,7 +81,7 @@ class SiteController extends Controller
         }
 
         // Get request params (GET method)
-        $getParams = Yii::$app->getRequest()->get();
+        $getParams =  Html::encode(Yii::$app->getRequest()->get());
 
         $model = new Continent();
         // Search data
